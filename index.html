@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!--Import Materialize and FA FA Icon + Font-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/circle-create.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript " src="js/materialize.min.js"></script>
+    <script type="text/javascript " src="js/circle-create.js"></script>
+</head>
+
+<body> 
+    <!--Main Menu-->
+        <ul id="slide-out" class="side-nav">
+            <!--Username and image-->
+                <li>
+                    <div class="userView menu-header">
+                        <div class="row">
+                            <div class="col s4"><img class="circle" src="https://randomuser.me/api/portraits/women/60.jpg"></div>
+                            <div class="col s8"> <span class="name"><a href="cuenta.html">Jhanna Doe</a></span></div>
+                        </div>
+                    </div>
+                </li>
+            <!--/ Username and image-->
+            <!--Menu-->
+                <li><a class="waves-effect" href="index.html">Inicio</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="waves-effect"  href="#">Perfil</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="waves-effect" href="#">Historial</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="waves-effect" href="#">Configuracion</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="waves-effect" href="faq.html">Preguntas Frecuentes</a></li>
+                <li><div class="divider"></div></li> 
+                <!--/ Menu--> 
+                <li><div class="spacer"></div></li>
+                <!--Verison Controll-->
+                <li><a class="waves-effect">Code Raccoons</a></li> 
+                <li><a class="waves-effect" href="#!">Versión <div class="right"> 1.0.0</div></a></li>
+                <!--/ Verison Controll-->
+        </ul>   
+    <!--Main Menu-->
+
+    <div id="menu_bar">
+        <span data-activates="slide-out" class="button-collapse open_menu">&#9776</span> 
+    </div>
+    <div id="main_content" class="row">
+        <div class="col s12 "> 
+            <!--Timer-->
+            <div id="cont" data-pct="0">
+                <a id="control" class="start_fast" role="button"></a> 
+                <div id="time"></div>
+                <svg id="svg" width="220" height="220"  version="1.1" xmlns="http://www.w3.org/2000/svg"> 
+                    <circle r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle>
+                    <circle id="bar" r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle> 
+                </svg>
+            </div> 
+            <!--/ Timer-->
+        </div>
+    </div> 
+    <script type="text/javascript " src="js/main.js "></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+body {
+    font-family: "Lato ", sans-serif;
+    background-color: #E8F3FB;
+}
+ 
+/*Menu Section*/
+.menu-header{
+    background: #0883DB;
+    padding-bottom: 10px !important;
+} 
+
+.right{
+    text-align: right;
+}
+ 
+ul.side-nav>li>a{
+    color: #E8F3FB !important;
+    font-size: 1.2em;
+}
+
+/*User name position and color*/
+.name, .name > a{
+    color: #E8F3FB !important;
+    font-size: 20px !important;
+    padding-top: 20px !important;
+} 
+
+/*Menu Bar and button*/
+.open_menu{ 
+    color: #E8F3FB !important;
+    font-size:30px;
+    cursor:pointer;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+.Menu_Bar{
+    background: #0883DB !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 150
+} 
+.Menu_Bar_Iphone{
+    background: #0883DB !important;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 150
+} 
+
+.Menu_Bar > span{ 
+    color: #E8F3FB !important;
+    font-size:30px;
+    cursor:pointer;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+.Menu_Bar_Iphone > span{ 
+    color: #E8F3FB !important;
+    font-size:30px;
+    cursor:pointer;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+/*Custom Divider and Spacer for the menu*/
+.divider{
+    height: 1px;
+    overflow: hidden; 
+    width: 90% !important;
+    vertical-align: middle !important;
+    margin-left: 5% !important;
+    background-color: #06548C !important;
+    margin: 0;
+}
+
+.spacer{
+    min-height: 50px;
+}
+/*End of the Menu Section*/ 
+
+/*Content position fixers*/
+.main_content_iphone{
+padding-top: 70px; 
+}
+
+.main_content{
+padding-top: 50px;
+
+}
+
+/*Rounded user Image*/
+.circle{ 
+    border: 2px solid #06548C !important;
+    margin-top: 20px;
+    width: 65%; 
+    height: auto;
+} 
