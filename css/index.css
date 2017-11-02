@@ -5,7 +5,8 @@ body {
  
 /*Menu Section*/
 .menu-header{
-    background: #0883DB;
+    background: #555557 !important;
+    color: #FFFFFF;
     padding-bottom: 10px !important;
 } 
 
@@ -35,7 +36,8 @@ ul.side-nav>li>a{
 }
 
 .Menu_Bar{
-    background: #0883DB !important;
+    background: #555557 !important;
+    color: #FFFFFF;
     position: fixed;
     top: 0;
     left: 0;
@@ -43,7 +45,8 @@ ul.side-nav>li>a{
     z-index: 150
 } 
 .Menu_Bar_Iphone{
-    background: #0883DB !important;
+    background: #555557 !important;
+    color: #FFFFFF;
     padding-top: 20px;
     position: fixed;
     top: 0;
@@ -87,17 +90,48 @@ ul.side-nav>li>a{
 /*Content position fixers*/
 .main_content_iphone{
 padding-top: 70px; 
+padding-bottom: 20px;
+background: #E8F3FB;
+margin-bottom: 0px !important;
 }
 
 .main_content{
 padding-top: 50px;
-
+padding-bottom: 20px;
+background: #E8F3FB;
+margin-bottom: 0px !important;
 }
 
 /*Rounded user Image*/
 .circle{ 
-    border: 2px solid #06548C !important;
+    border: 4px solid #0883DB !important;
     margin-top: 20px;
     width: 65%; 
     height: auto;
+} 
+
+/*Profile Page Styles*/
+.gray_bar{
+    background: #555557 !important;
+    color: #FFFFFF;
+}
+
+
+#circleBar-web-text{
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size:20px;
+    fill:#000;
+}
+#circleBar-web-labels tspan{
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size:17px;
+    fill:#E8F3FB;
+} 
+#circleBar-web-values tspan{
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size: 20px; 
+    fill:#000;
+}
+#circleBar-web-values tspan {
+    fill: #7D3A4D;
 } 
