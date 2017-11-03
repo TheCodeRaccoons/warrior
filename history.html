@@ -10,22 +10,21 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <!--Import Materialize and FA FA Icon + Font-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/circle-create.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript " src="js/materialize.min.js"></script> 
-    <script type="text/javascript " src="js/update-data.js"></script> 
+    <script type="text/javascript " src="js/materialize.min.js"></script>  
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 
-<body> 
+<body style="background: #0883DB !important"> 
     <!--Main Menu-->
         <ul id="slide-out" class="side-nav">
             <!--Username and image-->
             <li>
-                <div class="userView menu-header">
+                <div class="userView menu-header ">
                     <div class="row">
                         <div class="col s4"><img class="circle" src="https://randomuser.me/api/portraits/women/60.jpg"></div>
                         <div class="col s8"> <span class="name"><a href="profile.html">Jhanna Doe</a></span></div>
@@ -57,55 +56,48 @@
         <span data-activates="slide-out" class="button-collapse open_menu">&#9776</span> 
     </div>
     <div id="main_content" class="row">
-        <div class="col s12 "> 
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <label>Nombre(s)</label>
-                        <input type="text" name="User_Name" id="User_Name"><br>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <label>Apellidos</label>
-                        <input type="text" name="User_Lastname" id="User_Lastname"><br>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <label>Nombre de usuario</label>
-                        <input type="text" name="User_Username" id="User_Username"><br>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <label>Height</label> 
-                        <input type="number" name="User_Height" id="User_Height"><br>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <label>Weigth</label>
-                        <input type="number" name="User_Weigth" id="User_Weigth"><br>
-                    </div>
-                    </div>
-                    <a class="btn waves-effect waves-light" id="send" name="send">send</a> <br>
-
-                    
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <label>selecciona un usuario</label>
-                            <input type="number" name="selectedUser" id="selectedUser"><br>
-                        </div>
-                    </div>
-                    <a id="AddFast"  class="btn waves-effect waves-light" name="AddFast">Agregar Ayuno</a> 
-                </form> 
-                <div class="add-data"></div>
-            </div>
+        <div class="col s12 ">  
+            <div class="col s2"></div>
+            <div class="col s8 center-align"><img class="circle" src="https://randomuser.me/api/portraits/women/60.jpg"></div>
+            <div class="col s2"></div>
         </div>
-    </div> 
+    </div>
+    <div class="row gray_bar valign-wrapper center-align"> 
+        <div class="col s3">
+            IMC
+        </div>
+        <div class="col s3">
+            Fast Hit
+        </div>
+        <div class="col s3">
+            Avg Fast
+        </div>
+        <div class="col s3">
+            Current Streak
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col s12">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                x="0px" y="0px" width="100%" height="300px" overflow="visible" xml:space="preserve" preserveAspectRatio="xMidYMid">
+                    <g id="circleBarCharts"  class=" center-align">
+                        <g id="circleBar-web-group" transform="translate(0,0)">
+                            <image id="circleBar-web-icon" opacity="0" x="166" y="112" overflow="visible" width="98" height="77" xlink:href="http://www.iconarchive.com/download/i85541/graphicloads/100-flat/analytics.ico" />
+                            <g id="circleBar-web-chart" transform="translate(215,150)"></g>
+                            <clippath id="circleBar-web-clipPath">
+                                <rect id="circleBar-web-clipLabels" x="205" y="180" width="180" height="150"></rect>
+                            </clippath>
+                            <g id="circleBar-web-legend" clip-path="url(#circleBar-web-clipPath)">
+                                <text id="circleBar-web-values" transform="translate(202,210)"></text>
+                                <text id="circleBar-web-labels" transform="translate(257,210)"></text>
+                            </g>
+                        </g>
+                    </g>
+           </svg>
+        </div>
+    </div>
     <script type="text/javascript " src="js/main.js "></script>
+    <script type="text/javascript " src="js/cool-chart.js "></script>
 </body>
 
 </html>
