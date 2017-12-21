@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     $('input#input_text, textarea#textarea1').characterCounter();
     $('select').material_select();
-    //if(window.location.pathname != "/profile.html"){
+
         //get the Users DB Json
         var _user = JSON.parse(localStorage.getItem('User')) 
         //Check if the User data exists
@@ -39,16 +39,12 @@ $(document).ready(function () {
             $("#height").append(_user.User_height)
             $("#imc").append(_user.IMC)
             $("#hit").append(_user.Fast_Hit)  
-      //if the localstorage object does not exist... well, create one...
-      //  }
-      //  else{
-      //      window.location.replace("profile.html")
-      //  }
-     }
-     else{
-        alert(window.location.pathname);
-     }
-
+        //if the localstorage object does not exist... well, create one...
+        }
+        else if(!_user && window.location.pathname != "android_asset/www/profile.html"){
+            window.location.replace("profile.html")
+        }
+    
 });     
 
 $( ".timepicker" ).pickatime({
