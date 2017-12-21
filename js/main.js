@@ -41,8 +41,10 @@ $(document).ready(function () {
             $("#hit").append(_user.Fast_Hit)  
         //if the localstorage object does not exist... well, create one...
         }
-        else if(!_user && window.location.pathname != "android_asset/www/profile.html"){
+        else if(window.location.pathname != "android_asset/www/profile.html" && !_user ){
             window.location.replace("profile.html")
+        }else{
+            alert(window.location.pathname)
         }
     
 });     
