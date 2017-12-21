@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     $('input#input_text, textarea#textarea1').characterCounter();
     $('select').material_select();
-    if(window.location.pathname != "/C:/Users/Jorch/Documents/GitHub/warrior/profile.html"){
+    if(window.location.pathname != "profile.html"){
         //get the Users DB Json
         var _user = JSON.parse(localStorage.getItem('User')) 
         //Check if the User data exists
