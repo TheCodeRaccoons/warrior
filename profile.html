@@ -13,10 +13,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript " src="js/materialize.min.js"></script>  
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ 
 </head>
 
 <body style="background: #0883DB !important"> 
@@ -27,7 +24,7 @@
                 <div class="userView menu-header ">
                     <div class="row">
                         <div class="col s4"><img class="circle" src="https://randomuser.me/api/portraits/women/60.jpg"></div>
-                        <div class="col s8"> <span class="name"><a href="profile.html">Jhanna Doe</a></span></div>
+                        <div class="col s8"><span class="name"></a></span></div>
                     </div>
                 </div>
             </li>
@@ -49,44 +46,42 @@
             <li><a class="waves-effect">Code Raccoons</a></li> 
             <li><a class="waves-effect" href="#!">Versión <div class="right"> 1.0.0</div></a></li>
             <!--/ Verison <Controll-->                      </Controll-->
-        </ul>   
+        </ul>     
+    
+        <div id="menu_bar">
+            <span data-activates="slide-out" class="button-collapse open_menu">&#9776</span> 
+        </div>  
     <!--Main Menu-->
 
-    <div id="menu_bar">
-        <span data-activates="slide-out" class="button-collapse open_menu">&#9776</span> 
-    </div>
     <div class="main_area">
-    <div id="main_content" class="row">
+        <div id="main_content" class="row">
         <div class="col s12 ">  
             <div class="col s2"></div>
             <div class="col s8 center-align" style="padding-bottom: 20px"><img class="circle" src="https://randomuser.me/api/portraits/women/60.jpg"></div>
             <div class="col s2"></div>
         </div>
     </div>
+
     <div class="row gray_bar center-align"> 
             <div class="col s3">
+                Racha
+            </div>
+            <div class="col s3">
+                Peso
+            </div>
+            <div class="col s3">
+                Altura
+            </div>
+            <div class="col s3">
                 IMC
-            </div>
-            <div class="col s3">
-                Meta
-            </div>
-            <div class="col s3">
-                Promedio
-            </div>
-            <div class="col s3">
-                Total
             </div>  
-            <div class="col s3">
-                29
+            <div class="col s3" id="hit"> 
             </div>
-            <div class="col s3">
-                18 hr
+            <div class="col s3" id="weight">  
             </div>
-            <div class="col s3">
-                19.3 hr
+            <div class="col s3" id="height"> 
             </div>
-            <div class="col s3">
-                253 hr
+            <div class="col s3" id="imc"> 
             </div> 
         </div>
     </div>
@@ -94,112 +89,42 @@
 
     <div class="scroll-wrapper">
         <div class="row">
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_red">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
+            <form class="col s12 center-align">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="User_Name" type="text" data-length="14" maxlength="14" class="validate">
+                  <label for="User_Name">Nombre</label>
                 </div>
-            </div>
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_green">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_green">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_red">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_green">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            <div class="col s12 m5">
-                <div class="card-panel blueish-white border_red">
-                    <div class="row center-align">
-                        <div class="col s4">
-                            Inicio:
-                        </div>
-                        <div class="col s4">
-                            Fin:
-                        </div>
-                        <div class="col s4">
-                            Total:
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>           
+                <div class="input-field col s12">
+                    <select id="User_gender">
+                        <option value="" disabled selected>Seleccione un genero</option>
+                        <option value="1">Hombre</option>
+                        <option value="2">Mujer</option> 
+                    </select>
+                    <label>Genero</label>
+                </div> 
+                <div class="input-field col s12">
+                  <input id="User_Age" type="number" class="validate">
+                  <label for="User_Age">Edad</label>
+                </div> 
+                <div class="input-field col s12">
+                  <input id="User_Weigth" type="number" class="validate">
+                  <label for="User_Weigth">Peso</label>
+                </div> 
+                <div class="input-field col s12">
+                  <input id="User_height" type="number" class="validate">
+                  <label for="User_height">Altura</label>
+                </div> 
+                <a class="btn waves-effect waves-light blue lighten-2" id="update" name="update">Actualizar</a> <br>
+            </form>
+          </div>
+                          
     </div>
 
+    <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript " src="js/update-data.js"></script>   
+    <script type="text/javascript " src="js/materialize.min.js"></script>  
     <script type="text/javascript " src="js/main.js "></script>
-    <!--script type="text/javascript " src="js/cool-chart.js "></script-->
-    <script type="text/javascript">
-        
-            var myScroll;
-            function loaded() {
-                myScroll = new iScroll('wrapper');
-            }
-        
-            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-            document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-        
-        </script>
 </body>
 
 </html>

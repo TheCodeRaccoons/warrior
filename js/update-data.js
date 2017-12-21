@@ -1,48 +1,85 @@
-$(document).ready(function(){
-
+$(document).ready(function(){ 
+    //get the Users DB Json
+    var _user = JSON.parse(localStorage.getItem('User')) 
     //Check if the User data exists
-    if(localStorage.getItem('Users_DB')){
-        //get the Users DB Json
-        var retrievedObject = JSON.parse(localStorage.getItem('Users_DB')) 
-        //Get the data of the object and add it to the add-data section
-        console.log(retrievedObject)
-        for(var i = 0; i < retrievedObject.Users.length; i++){
-            $(".add-data").append("Name: " + retrievedObject.Users[i].User_Name + " " + retrievedObject.Users[i].User_Lastname + " Email: "  + retrievedObject.Users[i].Email + "<br>"); 
-        }
+    if(_user){
+        //Get the data of the object and add it to the add-data section 
+        $("#User_Name").val(_user.User_Name)
+        $(".name").append(_user.User_Name)
+        $("#User_Age").val(_user.User_Age)
+        $("#User_gender").val(_user.User_gender)
+        $("#User_Weigth").val(_user.User_Weigth)
+        $("#User_height").val(_user.User_height)
+        $("#weight").append(_user.User_Weigth)
+        $("#height").append(_user.User_height)
+        $("#imc").append(_user.IMC)
+        $("#hit").append(_user.Fast_Hit)  
     //if the localstorage object does not exist... well, create one...
     }else{
-        var Users_DB = {Users:[]}
-        localStorage.setItem("Users_DB", JSON.stringify(Users_DB))
+        
+    $( "#update" ).click(function() {
+            var User =
+                {
+                    "User_Name"         : $('#User_Name').val(), 
+                    "User_Age"          : $('#User_Age').val(),
+                    "User_gender"       : $('#User_gender').val(),
+                    "User_Weigth"       : $('#User_Weigth').val(),
+                    "User_height"       : $('#User_height').val(),
+                    "User_Fasts"        : [],
+                    "Total_Fast_Time"   : 0,
+                    "Fast_Hit"          : 0,
+                    "Target_Fast"       : null,
+                    "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()),
+                    "current_fast_start": null,
+                    "User_Image"        : null
+                }
+            
+            $("#imc").html(getIMC($('#User_Weigth').val(), $('#User_height').val())) 
+            $("#weight").html($('#User_Weigth').val()) 
+            $("#height").html($('#User_height').val()) 
+            $("#hit").append(0)   
+            localStorage.setItem("User", JSON.stringify(User))
+            _user = User
+        })
     }
 
     //If the send button is pressed run the function
-    $( "#send" ).click(function() {
-        //If aqll the fields are filled in store the data in the local storage
-        if($('#User_Name').val() != "" &&  $('#User_Lastname').val() != "" && $('#email').val() != "" && $('#Password').val() != ""){
-            //get this moment
-            var moment = new Date()
-            //get expiration time
-            var customDate = new Date (moment.getTime() + 3600000)
-            //push data to the object
-            retrievedObject['Users'].push(
-                {
-                    "User_Name":$('#User_Name').val(),
-                    "User_Lastname": $('#User_Lastname').val(),
-                    "Email": $('#email').val(),
-                    "Password" : $('#Password').val(),
-                    "Date_Created" : moment.getTime(),
-                    "expiration_Date" : customDate.getTime()
-                });
-            //console.log(retrievedObject)
-            //Print the last user added in the page
-            var id = retrievedObject.Users.length - 1
-            $(".add-data").append("Name: " + retrievedObject.Users[id].User_Name + " " + retrievedObject.Users[id].User_Lastname + " Email: "  + retrievedObject.Users[id].Email + "<br>"); 
-            //Update the localstorage variable
-            localStorage.setItem("Users_DB",  JSON.stringify(retrievedObject))
-        }
-        //If any value is missing throw error
-        else{
-            alert("Please fill in all the form values")
-        }
+    $( "#update" ).click(function() {
+        if($('#User_Name').val()){      _user.User_Name = $('#User_Name').val()}
+        if($('#User_Age').val()){       _user.User_Age = $('#User_Age').val()}
+        if($('#User_gender').val()){    _user.User_gender = $('#User_gender').val()}
+        if($('#User_Weigth').val()){    _user.User_Weigth = $('#User_Weigth').val()}
+        if($('#User_height').val()){    _user.User_height = $('#User_height').val()}   
+                                        _user.IMC =  getIMC($('#User_Weigth').val(), $('#User_height').val())
+                                        $("#imc").html(getIMC($('#User_Weigth').val(), $('#User_height').val())) 
+                                        $("#weight").html($('#User_Weigth').val()) 
+                                        $("#height").html($('#User_height').val()) 
+                                        $(".name").html($('#User_Name').val()) 
+                                        
+        localStorage.setItem("User",  JSON.stringify(_user))
     })
+
+    $("#AddFast").click(function(){
+        //get this moment
+        var moment = new Date()
+        //get expiration time
+        var customDate = new Date (moment.getTime() + 3600000)
+        //Get the last updated local user DB just for facts of this example oviously
+        var retrievedObject = JSON.parse(localStorage.getItem('Users_DB')) 
+        //get the selected user
+        var selectedUser = $('#selectedUser').val()
+            //push data to the object
+            retrievedObject.Users[selectedUser-1].User_Fasts.push(
+            { 
+                "Start_Date"        : moment.getTime(),
+                "Finish_Date"       : customDate.getTime(),
+                "total_fast_time"   : customDate.getTime(),
+                "Target_reached"    : reached
+            });
+        console.log(retrievedObject);
+        //Update the localstorage variable
+        localStorage.setItem("Users_DB",  JSON.stringify(retrievedObject))
+    })
+
+    
 })

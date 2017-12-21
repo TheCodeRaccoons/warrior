@@ -103,6 +103,8 @@ margin-bottom: 0px !important;
 
 .main_area{ 
     position: fixed !important;
+    z-index: 100;
+    width: 100% !important
 }
 
 /*Rounded user Image*/
