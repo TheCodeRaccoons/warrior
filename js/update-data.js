@@ -32,7 +32,7 @@ $(document).ready(function(){
                     "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()),
                     "current_fast_start": null,
                     "User_Image"        : null
-                }
+                } 
             
             $("#imc").html(getIMC($('#User_Weigth').val(), $('#User_height').val())) 
             $("#weight").html($('#User_Weigth').val()) 

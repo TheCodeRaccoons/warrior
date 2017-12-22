@@ -36,8 +36,7 @@ $(document).ready(function () {
             $("#imc").html(_user.IMC)
             $("#hit").html(_user.Fast_Hit)  
         //if the localstorage object does not exist... well, create one... 
-        }
-        alert(window.location.pathname)
+        } 
     
 });     
 
