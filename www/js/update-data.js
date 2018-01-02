@@ -2,6 +2,7 @@ $(document).ready(function(){
     //get the Users DB Json
     var _user = JSON.parse(localStorage.getItem('User')) 
     //Check if the User data exists
+    console.log(_user)
     if(_user){
         //Get the data of the object and add it to the add-data section 
         $("#User_Name").val(_user.User_Name)
@@ -13,7 +14,9 @@ $(document).ready(function(){
         $("#weight").html(_user.User_Weigth)
         $("#height").html(_user.User_height)
         $("#imc").html(_user.IMC)
-        $("#hit").html(_user.Fast_Hit)  
+        $("#hit").html(_user.Fast_Hit)
+        $("#Target_Fast").val(_user.Target_Fast)
+        $("#Language").val(_user.Language)
     //if the localstorage object does not exist... well, create one...
     }else{
         
