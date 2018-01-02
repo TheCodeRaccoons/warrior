@@ -92,3 +92,12 @@ $(document).ready(function(){
 
     
 })
+
+
+//Check this later
+function SaveData(){
+    var starttime = new Date(localStorage.getItem("Fast_Start"));
+    potatoe = starttime.toLocaleString().split(",")//.join("\n")
+    console.log(potatoe[0])
+
+}

@@ -63,7 +63,7 @@ function timeDifference(d, dd) {
         ms = Math.abs(d - dd);
 
     var _user = JSON.parse(localStorage.getItem('User')) 
-    var percentage = (100 / (_user.Target_Fast * 3600000)) * ms;
+    var percentage = (100 / (_user.Target_Fast * 3600000)) * ms; 
 
     //Getting the time as DD/HH/MM/SS// 
     var hours = parseInt(ms / hour, 10);
