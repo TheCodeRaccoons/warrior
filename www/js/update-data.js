@@ -31,6 +31,7 @@ $(document).ready(function(){
                     "Target_Fast"       : null,
                     "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()),
                     "current_fast_start": null,
+                    "Language": null,
                     "User_Image"        : null
                 } 
             
@@ -58,6 +59,14 @@ $(document).ready(function(){
                                         
         localStorage.setItem("User",  JSON.stringify(_user))
     })
+
+    $("#save").click(function(){
+        if($('#Target_Fast').val()){    _user.Target_Fast = $('#Target_Fast').val()}
+        if($('#Language').val()){    _user.Language = $('#Language').val()}
+        localStorage.setItem("User",  JSON.stringify(_user))
+        console.log(_user)
+    })
+
 
     $("#AddFast").click(function(){
         //get this moment
