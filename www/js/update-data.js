@@ -5,15 +5,15 @@ $(document).ready(function(){
     if(_user){
         //Get the data of the object and add it to the add-data section 
         $("#User_Name").val(_user.User_Name)
-        $(".name").append(_user.User_Name)
+        $(".name").html(_user.User_Name)
         $("#User_Age").val(_user.User_Age)
         $("#User_gender").val(_user.User_gender)
         $("#User_Weigth").val(_user.User_Weigth)
         $("#User_height").val(_user.User_height)
-        $("#weight").append(_user.User_Weigth)
-        $("#height").append(_user.User_height)
-        $("#imc").append(_user.IMC)
-        $("#hit").append(_user.Fast_Hit)  
+        $("#weight").html(_user.User_Weigth)
+        $("#height").html(_user.User_height)
+        $("#imc").html(_user.IMC)
+        $("#hit").html(_user.Fast_Hit)  
     //if the localstorage object does not exist... well, create one...
     }else{
         
