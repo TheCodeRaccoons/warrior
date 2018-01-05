@@ -1,6 +1,7 @@
 /*Seting up variables*/
 var isRunning = false;
-var fastint; 
+var fastint;
+var targetTime;
 
 $(document).ready(function() {
     /* Percentage and time show */
