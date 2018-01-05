@@ -8,7 +8,7 @@ $(document).ready(function() {
     if (localStorage.getItem("Fast_Start")) {
         var time = new Date(localStorage.getItem("Fast_Start"));
         var storedTime = time.getTime();
-        getMonthAndDate(localStorage.getItem("Fast_Start"))
+        //getMonthAndDate(localStorage.getItem("Fast_Start"))
         fastint = window.setInterval(function() {
             updateDate(storedTime)
         }, 1000);
