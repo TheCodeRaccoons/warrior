@@ -114,10 +114,7 @@ function timeDifference(d, dd) {
     //console.log(hours + " Hours")
     //console.log(formattedMinutes + " minutes")
     //console.log(seconds + " seconds") 
-    
-    $("#h").html(hours)
-    $("#m").html(formattedMinutes)
-    $("#s").html(seconds)
+    return $("#h").html(hours), $("#m").html(formattedMinutes), $("#s").html(seconds)
 };
 
 function getMonthAndDate(d){
