@@ -102,17 +102,7 @@ function timeDifference(d, dd) {
 
         $('#cont').attr('data-pct', percval);
     }
-
-   /* return [
-        hours + " : ",
-        formattedMinutes + " : ",
-        seconds + "<br />"
-    ].join(" ");    
-    */
-    //console.log(hours + " Hours")
-    //console.log(formattedMinutes + " minutes")
-    //console.log(seconds + " seconds") 
-    
+ 
     $("#h").html(hours)
     $("#m").html(formattedMinutes)
     $("#s").html(seconds)
@@ -138,10 +128,7 @@ function getMonthAndDate(d){
     var showStartdate = new Date(d);
     var showEndDate = new Date(d)
     showEndDate.setHours(showStartdate.getHours() + _user.Target_Fast)
-    
-    //showEndDate.setMilliseconds(showStartdate.getMilliseconds() + (_user.Target_Fast * 3600000))
-    console.log(showStartdate.valueOf())
-    console.log(showEndDate.valueOf())
+
 
     var n = month[showStartdate.getMonth()];
     var nn = month[showEndDate.getMonth()];
