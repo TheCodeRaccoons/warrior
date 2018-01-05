@@ -7,8 +7,10 @@ $(document).ready(function() {
     /* Percentage and time show */
     if (localStorage.getItem("Fast_Start")) {
         var time = new Date(localStorage.getItem("Fast_Start"));
+        
+        $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
         var storedTime = time.getTime();
-        getMonthAndDate(localStorage.getItem("Fast_Start"))
+        //getMonthAndDate(localStorage.getItem("Fast_Start"))
         fastint = window.setInterval(function() {
             updateDate(storedTime)
         }, 1000);
