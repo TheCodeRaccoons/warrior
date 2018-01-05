@@ -7,6 +7,7 @@ $(document).ready(function() {
     if (localStorage.getItem("Fast_Start")) {
         var time = new Date(localStorage.getItem("Fast_Start"));
         var storedTime = time.getTime();
+        getMonthAndDate(localStorage.getItem("Fast_Start"))
         fastint = window.setInterval(function() {
             updateDate(storedTime)
         }, 1000);
@@ -39,8 +40,11 @@ $(document).ready(function() {
         } else {
             clearInterval(fastint);
             localStorage.removeItem('Fast_Start'); 
-            isRunning = false;
-            document.getElementById("time").innerHTML = "";
+            isRunning = false;            
+            $("#h").html("0")
+            $("#m").html("00")
+            $("#s").html("00")
+            $('#cont').attr('data-pct', 0);
             $('#control').removeClass('pause_fast')
             $('#control').addClass('start_fast')
             $e.text("Iniciar");
@@ -51,7 +55,7 @@ $(document).ready(function() {
 
 function updateDate(_cc) {
     var c = new Date();
-    document.getElementById("time").innerHTML = timeDifference(_cc, c) + "<br />";
+    timeDifference(_cc, c);
 }
 
 function timeDifference(d, dd) {
@@ -98,10 +102,49 @@ function timeDifference(d, dd) {
         $('#cont').attr('data-pct', percval);
     }
 
-    return [
+   /* return [
         hours + " : ",
         formattedMinutes + " : ",
         seconds + "<br />"
-    ].join(" ");
-
+    ].join(" ");    
+    */
+    //console.log(hours + " Hours")
+    //console.log(formattedMinutes + " minutes")
+    //console.log(seconds + " seconds") 
+    
+    $("#h").html(hours)
+    $("#m").html(formattedMinutes)
+    $("#s").html(seconds)
 };
+
+function getMonthAndDate(d){
+    
+    var _user = JSON.parse(localStorage.getItem('User')) 
+    var month = new Array();
+    month[0] = "Enero";
+    month[1] = "Febrero";
+    month[2] = "Marzo";
+    month[3] = "Abril";
+    month[4] = "Mayo";
+    month[5] = "Junio";
+    month[6] = "Julio";
+    month[7] = "Agosto";
+    month[8] = "Septiembre";
+    month[9] = "Octubre";
+    month[10] = "Noviembre";
+    month[11] = "Diciembre";
+
+    var showStartdate = new Date(d);
+    var showEndDate = new Date(d)
+    showEndDate.setHours(showStartdate.getHours() + _user.Target_Fast)
+    
+    //showEndDate.setMilliseconds(showStartdate.getMilliseconds() + (_user.Target_Fast * 3600000))
+    console.log(showStartdate.valueOf())
+    console.log(showEndDate.valueOf())
+
+    var n = month[showStartdate.getMonth()];
+    var nn = month[showEndDate.getMonth()];
+
+    $('#inicio').html(n +" "+ showStartdate.getDay() + "<br>" +showStartdate.toLocaleTimeString())
+    $('#fin').html(nn +" "+ showEndDate.getDay() + "<br>" +showEndDate.toLocaleTimeString())
+}

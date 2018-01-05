@@ -49,22 +49,47 @@
                 <!--/ Verison Controll-->
         </ul>   
     <!--Main Menu-->
-
     <div id="menu_bar">
         <span data-activates="slide-out" class="button-collapse open_menu">&#9776</span> 
+        <span class="title" style="padding-left: 20%">Index</span>
     </div>
     <div id="main_content" class="row">
         <div class="col s12 "> 
+            <div class="row" style="margin-bottom:5px !important; margin-top:20%;">
+                <div class="col s4 center" id="h"></div>
+                <div class="col s4 center" id="m"></div>
+                <div class="col s4 center" id="s"></div>
+            </div>
+            <div class="row" style="margin-bottom:5px !important">
+                <div class="col s4 center">Horas</div>
+                <div class="col s4 center">Minutos</div>
+                <div class="col s4 center">Segundos</div>
+            </div>
+        </div>
+        <div class="col s12 "> 
             <!--Timer-->
             <div id="cont" data-pct="0">
-                <a id="control" class="start_fast" role="button"></a> 
-                <div id="time"></div>
+                <a id="control" class="start_fast" role="button"></a>  
                 <svg id="svg" width="220" height="220"  version="1.1" xmlns="http://www.w3.org/2000/svg"> 
                     <circle r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle>
                     <circle id="bar" r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle> 
                 </svg>
             </div> 
             <!--/ Timer-->
+        </div>
+        
+    <div id="main_content" class="row">
+        <div class="col s12 ">
+            <div class="row" style="margin-bottom:5px !important">
+                <div class="col s6 center">
+                    Inicio en:<br>
+                    <span id="inicio"></span>
+                </div>
+                <div class="col s6 center">
+                    Termina en:<br>
+                    <span id="fin"></span>
+                </div>
+            </div>
         </div>
     </div>  
 </body>

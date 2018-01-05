@@ -2,10 +2,10 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Warrior</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Intermitent Fasting Helper, Keep track of your fast and get cool tips daily!
     </description>
     <author email="jacortez_94@hotmail.com" href="http://thecoderaccoons.com">
-        PhoneGap Team
+        The Code Raccoons
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />

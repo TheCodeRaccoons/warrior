@@ -32,8 +32,7 @@ $(document).ready(function(){
                     "Total_Fast_Time"   : 0,
                     "Fast_Hit"          : 0,
                     "Target_Fast"       : null,
-                    "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()),
-                    "current_fast_start": null,
+                    "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()), 
                     "Language": null,
                     "User_Image"        : null
                 } 
