@@ -8,7 +8,7 @@ $(document).ready(function() {
     if (localStorage.getItem("Fast_Start")) {
         var time = new Date(localStorage.getItem("Fast_Start"));
         var storedTime = time.getTime();
-        //getMonthAndDate(localStorage.getItem("Fast_Start"))
+        getMonthAndDate(localStorage.getItem("Fast_Start"))
         fastint = window.setInterval(function() {
             updateDate(storedTime)
         }, 1000);
@@ -102,7 +102,17 @@ function timeDifference(d, dd) {
 
         $('#cont').attr('data-pct', percval);
     }
- 
+
+   /* return [
+        hours + " : ",
+        formattedMinutes + " : ",
+        seconds + "<br />"
+    ].join(" ");    
+    */
+    //console.log(hours + " Hours")
+    //console.log(formattedMinutes + " minutes")
+    //console.log(seconds + " seconds") 
+    
     $("#h").html(hours)
     $("#m").html(formattedMinutes)
     $("#s").html(seconds)
