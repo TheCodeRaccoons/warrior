@@ -10,7 +10,7 @@ $(document).ready(function() {
         
         $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
         var storedTime = time.getTime();
-        //getMonthAndDate(localStorage.getItem("Fast_Start"))
+        getMonthAndDate(localStorage.getItem("Fast_Start"))
         fastint = window.setInterval(function() {
             updateDate(storedTime)
         }, 1000);
@@ -35,6 +35,7 @@ $(document).ready(function() {
             var a = cc.getTime();
             ms = Math.abs(a - cc);
             cc.setTime(a);
+            getMonthAndDate(cc)
             localStorage.setItem("Fast_Start", cc);
             fastint = window.setInterval(function() {
                 updateDate(cc)
@@ -53,8 +54,7 @@ $(document).ready(function() {
             $e.text("Iniciar");
         }
     });
-});
- 
+}); 
 
 function updateDate(_cc) {
     var c = new Date();
@@ -104,16 +104,6 @@ function timeDifference(d, dd) {
 
         $('#cont').attr('data-pct', percval);
     }
-
-   /* return [
-        hours + " : ",
-        formattedMinutes + " : ",
-        seconds + "<br />"
-    ].join(" ");    
-    */
-    //console.log(hours + " Hours")
-    //console.log(formattedMinutes + " minutes")
-    //console.log(seconds + " seconds") 
     return $("#h").html(hours), $("#m").html(formattedMinutes), $("#s").html(seconds)
 };
 
@@ -135,13 +125,10 @@ function getMonthAndDate(d){
     month[11] = "Diciembre";
 
     var showStartdate = new Date(d);
-    var showEndDate = new Date(d)
-    showEndDate.setHours(showStartdate.getHours() + _user.Target_Fast)
-
-
+    var showEndDate = new Date(showStartdate.valueOf() + (parseInt(_user.Target_Fast) * 3600000)) 
     var n = month[showStartdate.getMonth()];
     var nn = month[showEndDate.getMonth()];
 
-    $('#inicio').html(n +" "+ showStartdate.getDay() + "<br>" +showStartdate.toLocaleTimeString())
-    $('#fin').html(nn +" "+ showEndDate.getDay() + "<br>" +showEndDate.toLocaleTimeString())
+    $('#inicio').html(n +" "+ showStartdate.getDate() + "<br>" +showStartdate.toLocaleTimeString())
+    $('#fin').html(nn +" "+ showEndDate.getDate() + "<br>" +showEndDate.toLocaleTimeString())
 }
