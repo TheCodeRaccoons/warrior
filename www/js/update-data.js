@@ -1,4 +1,4 @@
-$(document).ready(function(){ 
+$(document).ready(function(){
     //get the Users DB Json
     var _user = JSON.parse(localStorage.getItem('User')) 
     //Check if the User data exists

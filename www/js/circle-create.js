@@ -1,12 +1,16 @@
 /*Seting up variables*/
 var isRunning = false;
 var fastint;
-var targetTime;
+var time;
+var _user;
+var reached;
 
 $(document).ready(function() {
+    _user = JSON.parse(localStorage.getItem('User')) 
+    console.log(_user)
     /* Percentage and time show */
     if (localStorage.getItem("Fast_Start")) {
-        var time = new Date(localStorage.getItem("Fast_Start"));
+        time = new Date(localStorage.getItem("Fast_Start"));
         
         $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
         var storedTime = time.getTime();
@@ -21,6 +25,9 @@ $(document).ready(function() {
     } else {
         $('#control').text("Iniciar")
         $('#control').addClass('start_fast')
+        $("#h").html("0")
+        $("#m").html("00")
+        $("#s").html("00")
     } 
 
     $('#control').click(function() {
@@ -36,6 +43,7 @@ $(document).ready(function() {
             ms = Math.abs(a - cc);
             cc.setTime(a);
             getMonthAndDate(cc)
+            time = cc
             localStorage.setItem("Fast_Start", cc);
             fastint = window.setInterval(function() {
                 updateDate(cc)
@@ -43,8 +51,25 @@ $(document).ready(function() {
             fastint;
         } else {
             clearInterval(fastint);
-            localStorage.removeItem('Fast_Start'); 
-            isRunning = false;            
+            isRunning = false; 
+            var moment = new Date() 
+            if($("#h").html() >= _user.Target_Fast){
+                reached = true
+            }
+            else
+            {
+                reached = false
+            }
+            _user['User_Fasts'].push(
+                {   
+                    "Start_Date"        : time.getTime(),
+                    "Finish_Date"       : moment.getTime(),
+                    "total_fast_time"   : parseInt($("#h").html()),
+                    "Target_reached"    : reached
+                });
+            _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
+            localStorage.setItem("User",  JSON.stringify(_user)) 
+            localStorage.removeItem('Fast_Start');
             $("#h").html("0")
             $("#m").html("00")
             $("#s").html("00")
@@ -68,18 +93,15 @@ function timeDifference(d, dd) {
         day = hour * 24,
         ms = Math.abs(d - dd);
 
-    var _user = JSON.parse(localStorage.getItem('User')) 
     var percentage = (100 / (_user.Target_Fast * 3600000)) * ms; 
-
-    //Getting the time as DD/HH/MM/SS// 
+ 
     var hours = parseInt(ms / hour, 10);
     ms -= hours * hour;
     var minutes = parseInt(ms / minute, 10);
     ms -= minutes * minute
     var formattedMinutes = ("0" + minutes).slice(-2);
     var seconds = parseInt(ms / second, 10);
-
-    /*Circle modifier*/
+ 
     var val = parseInt(percentage)
     var $circle = $('#svg #bar');
 
@@ -108,8 +130,7 @@ function timeDifference(d, dd) {
 };
 
 function getMonthAndDate(d){
-    
-    var _user = JSON.parse(localStorage.getItem('User')) 
+     
     var month = new Array();
     month[0] = "Enero";
     month[1] = "Febrero";
