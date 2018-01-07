@@ -60,6 +60,7 @@ $(document).ready(function() {
             {
                 reached = false
             }
+            _user.Total_Fast_Time = _user.Total_Fast_Time +parseInt($("#h").html())
             _user['User_Fasts'].push(
                 {   
                     "Start_Date"        : time.getTime(),
