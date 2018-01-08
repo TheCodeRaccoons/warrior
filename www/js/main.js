@@ -4,7 +4,7 @@ var average = 0
 $(document).ready(function () {
     
     url=window.location.href;
-    alert(url)
+    alert(url)  
     DeviceTypeCheck();
     // Initialize collapse button
     $(".button-collapse").sideNav();
@@ -37,8 +37,8 @@ $(document).ready(function () {
                 $("#total").html(0 + " hrs") 
             }
         }
-        else if(!_user && window.location.href != "/android_asset/www/profile.html"){
-            window.location.href = '/android_asset/www/profile.html';
+        else if(!_user && window.location.href != "file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html"){
+            window.location.href = 'file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html';
         }
 });
 function getIMC(peso, altura)
