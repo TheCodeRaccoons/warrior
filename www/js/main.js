@@ -2,7 +2,7 @@ var _user
 var average = 0
 /* Slider */
 $(document).ready(function () {
-    
+    url=window.location.href;
     DeviceTypeCheck();
     // Initialize collapse button
     $(".button-collapse").sideNav();
@@ -35,8 +35,8 @@ $(document).ready(function () {
                 $("#total").html(0 + " hrs") 
             }
         }
-        else if(!_user && window.location.href != "file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html" || !_user && window.location.href != "profile.html"){
-        url=window.location.href;
+        else if(!_user && url != "file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html"){
+        
         //alert(url)      
         window.location.href = 'profile.html';
         }
