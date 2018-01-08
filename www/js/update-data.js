@@ -39,7 +39,7 @@ $(document).ready(function(){
             _user = User 
         alert("Cambios Realizados con exito")
         })
-    } 
+    }
     $( "#update" ).click(function() {
         if($('#User_Name').val()){      _user.User_Name = $('#User_Name').val()}
         if($('#User_Age').val()){       _user.User_Age = $('#User_Age').val()}

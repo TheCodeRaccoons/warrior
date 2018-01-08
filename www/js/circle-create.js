@@ -50,10 +50,8 @@ $(document).ready(function() {
             }, 1000);
             fastint;
         } else {
-            clearInterval(fastint);
             isRunning = false; 
-            var moment = new Date()
-            
+            var moment = new Date() 
             $("#percent").html(parseInt(cont.getAttribute('data-pct')))
             $("#inicio_ayuno").html(time.toLocaleTimeString())
             $("#fin_ayuno").html(moment.toLocaleTimeString())
@@ -69,7 +67,8 @@ $(document).ready(function() {
             $("#racha_ayuno2").html(_user.Fast_Hit) 
             $("#prox_ayuno2").html("0")
 
-            if($("#h").html() >= _user.Target_Fast){
+            if($("#h").html() >= _user.Target_Fast){ 
+                clearInterval(fastint);
                 $('#completado').modal('open');
                 reached = true
                 _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
@@ -93,7 +92,8 @@ $(document).ready(function() {
                 $e.text("Iniciar");
             }else{
                 $('#no_completado').modal('open'); 
-                $('#terminar').click(function() {
+                $('#terminar').click(function() { 
+                    clearInterval(fastint);
                     reached = false
                     _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
                     _user['User_Fasts'].push(
