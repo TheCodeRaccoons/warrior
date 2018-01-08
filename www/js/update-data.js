@@ -31,7 +31,7 @@ $(document).ready(function(){
                     "Language": null,
                     "User_Image"        : null,
                     "logros":{
-                        "Aspirante" : false,        // 0 -14 hrs (Primer ayuno)
+                        "Aspirante" : true,        // 0 -14 hrs (Primer ayuno)
                         "Aprendis"  : false,        // 14 - 150 hrs total fast
                         "Escudero"  : false,        // 111 - 350
                         "Guerrero"  : false,        // 351 - 1k
