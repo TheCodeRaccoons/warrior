@@ -13,7 +13,7 @@ $(document).ready(function(){
         $("#weight").html(_user.User_Weigth)
         $("#height").html(_user.User_height) 
     //if the localstorage object does not exist... well, create one...
-    }else{ 
+    }else{
     $("#bienvenido").modal('open');
     $( "#update" ).click(function() {
             var User =
@@ -29,7 +29,21 @@ $(document).ready(function(){
                     "Target_Fast"       : null,
                     "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()), 
                     "Language": null,
-                    "User_Image"        : null
+                    "User_Image"        : null,
+                    "logros":{
+                        "Aspirante" : false,        // 0 -14 hrs (Primer ayuno)
+                        "Aprendis"  : false,        // 14 - 150 hrs total fast
+                        "Escudero"  : false,        // 111 - 350
+                        "Guerrero"  : false,        // 351 - 1k
+                        "Espartano" : false,        // 1k <
+                        "Iniciando": 0,             // Iniciar una racha de > 1 ayuno
+                        "X5": 0,                    // Completar una racha de > 5 ayunos
+                        "X10": 0,                   // Completar una racha de > 10 ayunos
+                        "Sin_Descanso":0,           // Completar un ayuno de 20 dias
+                        "Mas_del_Mes": 0,           // Completar una racha de > 31 ayunos
+                        "Soy_Guerrero": 0           // Completar una racha de > 60 ayunos
+                    },    
+                    "ultimo_logro": null
                 } 
             
             $("#imc").html(getIMC($('#User_Weigth').val(), $('#User_height').val())) 
