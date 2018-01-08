@@ -7,7 +7,6 @@ var reached;
 
 $(document).ready(function() {
     _user = JSON.parse(localStorage.getItem('User')) 
-    console.log(_user)
     /* Percentage and time show */
     if (localStorage.getItem("Fast_Start")) {
         time = new Date(localStorage.getItem("Fast_Start"));
@@ -50,7 +49,6 @@ $(document).ready(function() {
             }, 1000);
             fastint;
         } else {
-            isRunning = false; 
             var moment = new Date() 
             $("#percent").html(parseInt(cont.getAttribute('data-pct')))
             $("#inicio_ayuno").html(time.toLocaleTimeString())
@@ -90,34 +88,35 @@ $(document).ready(function() {
                 $('#control').removeClass('pause_fast')
                 $('#control').addClass('start_fast')
                 $e.text("Iniciar");
+                isRunning = false; 
             }else{
                 $('#no_completado').modal('open'); 
-                $('#terminar').click(function() { 
-                    clearInterval(fastint);
-                    reached = false
-                    _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
-                    _user['User_Fasts'].push(
-                    {   
-                        "Start_Date"        : time.getTime(),
-                        "Finish_Date"       : moment.getTime(),
-                        "total_fast_time"   : parseInt($("#h").html()),
-                        "Target_reached"    : reached
-                    });
-                    _user.Fast_Hit = 0
-                    localStorage.setItem("User",  JSON.stringify(_user))
-                    
-                    localStorage.removeItem('Fast_Start');
-                    $("#h").html("0")
-                    $("#m").html("00")
-                    $("#s").html("00")
-                    $('#cont').attr('data-pct', 0);
-                    $('#control').removeClass('pause_fast')
-                    $('#control').addClass('start_fast')
-                    $e.text("Iniciar");
-                }) 
-                $('#cancelar').click(function() {
-                   $('#no_completado').modal('close');
-                })
+                    $('#terminar').one('click',function() { 
+                        clearInterval(fastint);
+                        reached = false
+                        _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
+                        _user['User_Fasts'].push(
+                        {   
+                            "Start_Date"        : time.getTime(),
+                            "Finish_Date"       : moment.getTime(),
+                            "total_fast_time"   : parseInt($("#h").html()),
+                            "Target_reached"    : reached
+                        });
+                        _user.Fast_Hit = 0
+                        localStorage.setItem("User",  JSON.stringify(_user))
+                        
+                        localStorage.removeItem('Fast_Start');
+                        $("#h").html("0")
+                        $("#m").html("00")
+                        $("#s").html("00")
+                        $('#cont').attr('data-pct', 0);
+                        $('#control').removeClass('pause_fast')
+                        $('#control').addClass('start_fast')
+                        $e.text("Iniciar");
+                    }) 
+                    $('#cancelar').click(function() {
+                        $('#no_completado').modal('close');
+                    })
             }
         }
     });
