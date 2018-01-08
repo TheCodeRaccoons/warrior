@@ -53,14 +53,8 @@ $(document).ready(function() {
             clearInterval(fastint);
             isRunning = false; 
             var moment = new Date() 
-            if($("#h").html() >= _user.Target_Fast){
-                reached = true
-            }
-            else
-            {
-                reached = false
-            }
-            _user.Total_Fast_Time = _user.Total_Fast_Time +parseInt($("#h").html())
+            if($("#h").html() >= _user.Target_Fast){reached = true}else{reached = false}
+            _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
             _user['User_Fasts'].push(
                 {   
                     "Start_Date"        : time.getTime(),

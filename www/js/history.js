@@ -31,7 +31,7 @@ function LoadMore(){
     showMore = i + 5
     showArray = _user.User_Fasts.slice(i , showMore)  
     if(showArray.length <= 0){
-        
+        //send alert no data
     }else{
         for(var x = 0; x < showArray.length; x++){
             var showStartdate = new Date(showArray[x].Start_Date)
