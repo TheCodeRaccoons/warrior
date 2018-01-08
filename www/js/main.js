@@ -3,8 +3,6 @@ var average = 0
 /* Slider */
 $(document).ready(function () {
     
-    url=window.location.href;
-    alert(url)  
     DeviceTypeCheck();
     // Initialize collapse button
     $(".button-collapse").sideNav();
@@ -38,7 +36,9 @@ $(document).ready(function () {
             }
         }
         else if(!_user && window.location.href != "file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html"){
-            window.location.href = 'file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html';
+        url=window.location.href;
+        alert(url)      
+        window.location.href = 'profile.html';
         }
 });
 function getIMC(peso, altura)
