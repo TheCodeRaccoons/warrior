@@ -37,7 +37,7 @@ $(document).ready(function(){
             $("#height").html($('#User_height').val()) 
             $("#hit").append(0)   
             localStorage.setItem("User", JSON.stringify(User))
-            _user = User
+            _user = User  
             window.location.href = 'setings.html';
         })
     }

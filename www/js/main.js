@@ -10,6 +10,7 @@ $(document).ready(function () {
     $('input#input_text, textarea#textarea1').characterCounter();
     $('select').material_select();
         _user = JSON.parse(localStorage.getItem('User')) 
+        //console.log(_user)
         if(_user){
             $("#User_Name").html(_user.User_Name)
             $("#User_Name").val(_user.User_Name)

@@ -102,7 +102,7 @@ $(document).ready(function() {
                     $("#minutos_ayuno2").html($("#m").text() + "min")
                     $("#racha_ayuno2").html(_user.Fast_Hit)
                     $('#no_completado').modal('open'); 
-                        $('#terminar').one('click',function() { 
+                        $('#terminar_no_completado').one('click',function() { 
                             clearInterval(fastint);
                             reached = false
                             _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
@@ -125,7 +125,7 @@ $(document).ready(function() {
                             $('#control').addClass('start_fast')
                             $e.text("Iniciar");
                         }) 
-                        $('#cancelar').click(function() {
+                        $('#cancelar_no_completado').click(function() {
                             $('#no_completado').modal('close');
                         })
                 }
@@ -133,7 +133,7 @@ $(document).ready(function() {
                     $("#horas_ayuno3").html($("#h").text() + "hrs")
                     $("#racha_ayuno3").html(_user.Fast_Hit)
                     $('#ayuno_invalido').modal('open'); 
-                    $('#terminar').one('click',function() {
+                    $('#terminar_invalido').one('click',function() {
                         clearInterval(fastint);
                         reached = false
                         localStorage.removeItem('Fast_Start');
@@ -145,8 +145,8 @@ $(document).ready(function() {
                         $('#control').addClass('start_fast')
                         $e.text("Iniciar");
                     }) 
-                    $('#cancelar').click(function() {
-                        $('#no_completado').modal('close');
+                    $('#cancelar_invalido').click(function() {
+                        $('#ayuno_invalido').modal('close');
                     })
                 }
             }

@@ -1,10 +1,5 @@
-if(_user){
-    if(_user.Target_Fast == null){
-        $("#bienvenido").modal('open');
-    }
-}else{ 
-    window.location.href = 'profile.html';
-}
+_user = JSON.parse(localStorage.getItem('User')) 
+console.log(_user)
 $("#save").click(function(){
     if($('#Target_Fast').val()){    _user.Target_Fast = $('#Target_Fast').val()}
     if($('#Language').val()){    _user.Language = $('#Language').val()}
