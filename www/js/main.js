@@ -19,14 +19,20 @@ $(document).ready(function () {
             $("#hit").html(_user.Fast_Hit)  
             $("#User_gender").val(_user.User_gender)
             $("#Target_Fast").val(_user.Target_Fast)  
-            $("#Target_Time").html(_user.Target_Fast + " hrs") 
-            for(var x = 0; x < _user.User_Fasts.length; x++){
-                average = average + _user.User_Fasts[x].total_fast_time 
-                console.log(average)
+            $("#Target_Time").html(_user.Target_Fast + " hrs")
+            if(_user.User_Fasts.length < 0){
+                for(var x = 0; x < _user.User_Fasts.length; x++){
+                    average = average + _user.User_Fasts[x].total_fast_time 
+                    console.log(average)
+                }
+                average = average / _user.User_Fasts.length
+                $("#avg").html(average.toFixed(2) + " hrs")
+                $("#total").html(_user.Total_Fast_Time + " hrs") 
             }
-            average = average / _user.User_Fasts.length  
-            $("#avg").html(average + " hrs")
-            $("#total").html(_user.Total_Fast_Time + " hrs") 
+            else{
+                $("#avg").html(0 + " hrs")
+                $("#total").html(0 + " hrs") 
+            }
         }
 });
 function getIMC(peso, altura)
