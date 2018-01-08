@@ -13,8 +13,7 @@ $(document).ready(function(){
         $("#weight").html(_user.User_Weigth)
         $("#height").html(_user.User_height) 
     //if the localstorage object does not exist... well, create one...
-    }else{
-        
+    }else{ 
     $( "#update" ).click(function() {
             var User =
                 {
@@ -37,11 +36,10 @@ $(document).ready(function(){
             $("#height").html($('#User_height').val()) 
             $("#hit").append(0)   
             localStorage.setItem("User", JSON.stringify(User))
-            _user = User
+            _user = User 
+        alert("Cambios Realizados con exito")
         })
-    }
-
-    //If the send button is pressed run the function
+    } 
     $( "#update" ).click(function() {
         if($('#User_Name').val()){      _user.User_Name = $('#User_Name').val()}
         if($('#User_Age').val()){       _user.User_Age = $('#User_Age').val()}
@@ -55,6 +53,7 @@ $(document).ready(function(){
                                         $(".name").html($('#User_Name').val()) 
                                         
         localStorage.setItem("User",  JSON.stringify(_user))
+        alert("Cambios Realizados con exito")
     })
 
 })

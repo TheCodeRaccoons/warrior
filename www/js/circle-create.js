@@ -52,26 +52,73 @@ $(document).ready(function() {
         } else {
             clearInterval(fastint);
             isRunning = false; 
-            var moment = new Date() 
-            if($("#h").html() >= _user.Target_Fast){reached = true}else{reached = false}
-            _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
-            _user['User_Fasts'].push(
+            var moment = new Date()
+            
+            $("#percent").html(parseInt(cont.getAttribute('data-pct')))
+            $("#inicio_ayuno").html(time.toLocaleTimeString())
+            $("#fin_ayuno").html(moment.toLocaleTimeString())
+            $("#horas_ayuno").html($("#h").text() + "hrs")
+            $("#minutos_ayuno").html($("#m").text() + "min")
+            $("#racha_ayuno").html(_user.Fast_Hit) 
+            $("#prox_ayuno").html("0")
+            $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
+            $("#inicio_ayuno2").html(time.toLocaleTimeString())
+            $("#fin_ayuno2").html(moment.toLocaleTimeString())
+            $("#horas_ayuno2").html($("#h").text() + "hrs")
+            $("#minutos_ayuno2").html($("#m").text() + "min")
+            $("#racha_ayuno2").html(_user.Fast_Hit) 
+            $("#prox_ayuno2").html("0")
+
+            if($("#h").html() >= _user.Target_Fast){
+                $('#completado').modal('open');
+                reached = true
+                _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
+                _user['User_Fasts'].push(
                 {   
                     "Start_Date"        : time.getTime(),
                     "Finish_Date"       : moment.getTime(),
                     "total_fast_time"   : parseInt($("#h").html()),
                     "Target_reached"    : reached
                 });
-            _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
-            localStorage.setItem("User",  JSON.stringify(_user)) 
-            localStorage.removeItem('Fast_Start');
-            $("#h").html("0")
-            $("#m").html("00")
-            $("#s").html("00")
-            $('#cont').attr('data-pct', 0);
-            $('#control').removeClass('pause_fast')
-            $('#control').addClass('start_fast')
-            $e.text("Iniciar");
+                _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
+                localStorage.setItem("User",  JSON.stringify(_user)) 
+            
+                localStorage.removeItem('Fast_Start');
+                $("#h").html("0")
+                $("#m").html("00")
+                $("#s").html("00")
+                $('#cont').attr('data-pct', 0);
+                $('#control').removeClass('pause_fast')
+                $('#control').addClass('start_fast')
+                $e.text("Iniciar");
+            }else{
+                $('#no_completado').modal('open'); 
+                $('#terminar').click(function() {
+                    reached = false
+                    _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
+                    _user['User_Fasts'].push(
+                    {   
+                        "Start_Date"        : time.getTime(),
+                        "Finish_Date"       : moment.getTime(),
+                        "total_fast_time"   : parseInt($("#h").html()),
+                        "Target_reached"    : reached
+                    });
+                    _user.Fast_Hit = 0
+                    localStorage.setItem("User",  JSON.stringify(_user))
+                    
+                    localStorage.removeItem('Fast_Start');
+                    $("#h").html("0")
+                    $("#m").html("00")
+                    $("#s").html("00")
+                    $('#cont').attr('data-pct', 0);
+                    $('#control').removeClass('pause_fast')
+                    $('#control').addClass('start_fast')
+                    $e.text("Iniciar");
+                }) 
+                $('#cancelar').click(function() {
+                   $('#no_completado').modal('close');
+                })
+            }
         }
     });
 }); 

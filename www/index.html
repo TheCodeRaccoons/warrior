@@ -44,8 +44,8 @@
                 <!--/ Menu--> 
                 <li><div class="spacer"></div></li>
             <!--Verison Controll-->
-            <li><a class="waves-effect">Code Raccoons</a></li> 
-            <li><a class="waves-effect" href="#!">Versión <div class="right">Beta V1.0.0</div></a></li>
+            <li style="position: fixed;bottom: 48px; width:100%"><a class="waves-effect">Code Raccoons</a></li> 
+            <li style="position: fixed;bottom: 0; width:100%"><a class="waves-effect" href="#!">Versión <div class="right">Beta V1.0.0</div></a></li>
             <!--/ Verison <Controll--> 
         </ul>   
     <!--Main Menu-->
@@ -93,6 +93,52 @@
         </div>
     </div>  
 </body>
+
+
+  <!-- Modal Termino ayuno completado -->
+  <div id="completado" class="modal">
+    <div class="modal-content center-align">
+        <h5><span id="percent">360</span> % Completado</h5>
+        <br>
+        De <span id="inicio_ayuno">x:xx xx</span> a <span id="fin_ayuno">x:xx xx</span>
+        <br>
+        <br>
+        Con un total de
+        <br>
+        <h4><span id="horas_ayuno">x hrs</span> <span id="minutos_ayuno">x min</span></h4>
+        <br>
+        <p>Sigue con tu racha de <span id="racha_ayuno"></span> Dias!<br>
+        Estas a <span id="prox_ayuno"></span> de tu proximo ayuno! 
+        </p>    
+    </div>
+    <div class="modal-footer center-align">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
+    </div>
+  </div>
+
+  <!--  Modal Termino ayuno no completado -->
+  <div id="no_completado" class="modal">
+    <div class="modal-content center-align">
+        <h2>Espera!</h2>
+        <h5>Tienes <span id="percent2"></span>% Completado</h5>
+        <br>
+        De <span id="inicio_ayuno2">x:xx xx</span> a <span id="fin_ayuno2">x:xx xx</span>
+        <br>
+        <br>
+        Con un total de
+        <br>
+        <h4><span id="horas_ayuno2">x hrs</span> <span id="minutos_ayuno2">x min</span></h4>
+        <br>
+        <p>Si terminas tu ayuno ahora perderas tu racha de 
+           <b><span id="racha_ayuno2"></span></b> Dias!<br> 
+        </p>    
+        Seguro quieres terminar?
+    </div>
+    <div class="modal-footer center-align">
+      <a id="terminar" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
+      <a id="cancelar" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+    </div>
+  </div>
     <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript " src="js/materialize.min.js"></script>
     <script type="text/javascript " src="js/circle-create.js"></script>
