@@ -7,97 +7,68 @@ var reached;
 
 $(document).ready(function() {
     _user = JSON.parse(localStorage.getItem('User')) 
-    /* Percentage and time show */
-    if (localStorage.getItem("Fast_Start")) {
-        time = new Date(localStorage.getItem("Fast_Start"));
-        
-        $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
-        var storedTime = time.getTime();
-        getMonthAndDate(localStorage.getItem("Fast_Start"))
-        fastint = window.setInterval(function() {
-            updateDate(storedTime)
-        }, 1000);
-        fastint;
-        isRunning = true;
-        $('#control').text("Detener")
-        $('#control').addClass('pause_fast')
-    } else {
-        $('#control').text("Iniciar")
-        $('#control').addClass('start_fast')
-        $("#h").html("0")
-        $("#m").html("00")
-        $("#s").html("00")
-    } 
-
-    $('#control').click(function() {
-        var $e = $(this);
-        if (!isRunning) {
-            //Start the counter
-            isRunning = true;
-            $('#control').removeClass('start_fast')
-            $('#control').addClass('pause_fast')
-            $e.text("Detener");
-            var cc = new Date();
-            var a = cc.getTime();
-            ms = Math.abs(a - cc);
-            cc.setTime(a);
-            getMonthAndDate(cc)
-            time = cc
-            localStorage.setItem("Fast_Start", cc);
+    if(_user){
+        if(!_user.Target_Fast){
+            $("#agregar_meta").modal('open')
+            $('#continuar').click(function() {
+                window.location.href = 'setings.html';
+            })
+        }
+        /* Percentage and time show */
+        if (localStorage.getItem("Fast_Start")) {
+            time = new Date(localStorage.getItem("Fast_Start"));
+            
+            $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
+            var storedTime = time.getTime();
+            getMonthAndDate(localStorage.getItem("Fast_Start"))
             fastint = window.setInterval(function() {
-                updateDate(cc)
+                updateDate(storedTime)
             }, 1000);
             fastint;
+            isRunning = true;
+            $('#control').text("Detener")
+            $('#control').addClass('pause_fast')
         } else {
-            var moment = new Date()  
-            if(parseInt($("#h").html()) >= _user.Target_Fast){ 
-                $("#percent").html(parseInt(cont.getAttribute('data-pct')))
-                $("#inicio_ayuno").html(time.toLocaleTimeString())
-                $("#fin_ayuno").html(moment.toLocaleTimeString())
-                $("#horas_ayuno").html($("#h").text() + "hrs")
-                $("#minutos_ayuno").html($("#m").text() + "min")
-                $("#racha_ayuno").html(_user.Fast_Hit) 
-                $("#prox_ayuno").html("0")
-                $('#completado').modal('open');
-                $('#terminar').one('click',function() { 
-                    clearInterval(fastint);
-                    reached = true
-                    _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
-                    _user['User_Fasts'].push(
-                    {   
-                        "Start_Date"        : time.getTime(),
-                        "Finish_Date"       : moment.getTime(),
-                        "total_fast_time"   : parseInt($("#h").html()),
-                        "Target_reached"    : reached
-                    });
-                    _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
-                    localStorage.setItem("User",  JSON.stringify(_user)) 
-                
-                    localStorage.removeItem('Fast_Start');
-                    $("#h").html("0")
-                    $("#m").html("00")
-                    $("#s").html("00")
-                    $('#cont').attr('data-pct', 0);
-                    $('#control').removeClass('pause_fast')
-                    $('#control').addClass('start_fast')
-                    $e.text("Iniciar");
-                    isRunning = false;
-                })
-                $('#cancelar').click(function() {
-                    $('#completado').modal('close');
-                })
-            }
-            else if(parseInt($("#h").html()) >= 12 && parseInt($("#h").html()) <= _user.Target_Fast ){
-                $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
-                $("#inicio_ayuno2").html(time.toLocaleTimeString())
-                $("#fin_ayuno2").html(moment.toLocaleTimeString())
-                $("#horas_ayuno2").html($("#h").text() + "hrs")
-                $("#minutos_ayuno2").html($("#m").text() + "min")
-                $("#racha_ayuno2").html(_user.Fast_Hit)
-                $('#no_completado').modal('open'); 
+            $('#control').text("Iniciar")
+            $('#control').addClass('start_fast')
+            $("#h").html("0")
+            $("#m").html("00")
+            $("#s").html("00")
+        } 
+
+        $('#control').click(function() {
+            var $e = $(this);
+            if (!isRunning) {
+                //Start the counter
+                isRunning = true;
+                $('#control').removeClass('start_fast')
+                $('#control').addClass('pause_fast')
+                $e.text("Detener");
+                var cc = new Date();
+                var a = cc.getTime();
+                ms = Math.abs(a - cc);
+                cc.setTime(a);
+                getMonthAndDate(cc)
+                time = cc
+                localStorage.setItem("Fast_Start", cc);
+                fastint = window.setInterval(function() {
+                    updateDate(cc)
+                }, 1000);
+                fastint;
+            } else {
+                var moment = new Date()  
+                if(parseInt($("#h").html()) >= _user.Target_Fast){ 
+                    $("#percent").html(parseInt(cont.getAttribute('data-pct')))
+                    $("#inicio_ayuno").html(time.toLocaleTimeString())
+                    $("#fin_ayuno").html(moment.toLocaleTimeString())
+                    $("#horas_ayuno").html($("#h").text() + "hrs")
+                    $("#minutos_ayuno").html($("#m").text() + "min")
+                    $("#racha_ayuno").html(_user.Fast_Hit) 
+                    $("#prox_ayuno").html("0")
+                    $('#completado').modal('open');
                     $('#terminar').one('click',function() { 
                         clearInterval(fastint);
-                        reached = false
+                        reached = true
                         _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
                         _user['User_Fasts'].push(
                         {   
@@ -106,9 +77,65 @@ $(document).ready(function() {
                             "total_fast_time"   : parseInt($("#h").html()),
                             "Target_reached"    : reached
                         });
-                        _user.Fast_Hit = 0
-                        localStorage.setItem("User",  JSON.stringify(_user))
-                        
+                        _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
+                        localStorage.setItem("User",  JSON.stringify(_user)) 
+                    
+                        localStorage.removeItem('Fast_Start');
+                        $("#h").html("0")
+                        $("#m").html("00")
+                        $("#s").html("00")
+                        $('#cont').attr('data-pct', 0);
+                        $('#control').removeClass('pause_fast')
+                        $('#control').addClass('start_fast')
+                        $e.text("Iniciar");
+                        isRunning = false;
+                    })
+                    $('#cancelar').click(function() {
+                        $('#completado').modal('close');
+                    })
+                }
+                else if(parseInt($("#h").html()) >= 12 && parseInt($("#h").html()) <= _user.Target_Fast ){
+                    $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
+                    $("#inicio_ayuno2").html(time.toLocaleTimeString())
+                    $("#fin_ayuno2").html(moment.toLocaleTimeString())
+                    $("#horas_ayuno2").html($("#h").text() + "hrs")
+                    $("#minutos_ayuno2").html($("#m").text() + "min")
+                    $("#racha_ayuno2").html(_user.Fast_Hit)
+                    $('#no_completado').modal('open'); 
+                        $('#terminar').one('click',function() { 
+                            clearInterval(fastint);
+                            reached = false
+                            _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
+                            _user['User_Fasts'].push(
+                            {   
+                                "Start_Date"        : time.getTime(),
+                                "Finish_Date"       : moment.getTime(),
+                                "total_fast_time"   : parseInt($("#h").html()),
+                                "Target_reached"    : reached
+                            });
+                            _user.Fast_Hit = 0
+                            localStorage.setItem("User",  JSON.stringify(_user))
+                            
+                            localStorage.removeItem('Fast_Start');
+                            $("#h").html("0")
+                            $("#m").html("00")
+                            $("#s").html("00")
+                            $('#cont').attr('data-pct', 0);
+                            $('#control').removeClass('pause_fast')
+                            $('#control').addClass('start_fast')
+                            $e.text("Iniciar");
+                        }) 
+                        $('#cancelar').click(function() {
+                            $('#no_completado').modal('close');
+                        })
+                }
+                else{
+                    $("#horas_ayuno3").html($("#h").text() + "hrs")
+                    $("#racha_ayuno3").html(_user.Fast_Hit)
+                    $('#ayuno_invalido').modal('open'); 
+                    $('#terminar').one('click',function() {
+                        clearInterval(fastint);
+                        reached = false
                         localStorage.removeItem('Fast_Start');
                         $("#h").html("0")
                         $("#m").html("00")
@@ -121,31 +148,15 @@ $(document).ready(function() {
                     $('#cancelar').click(function() {
                         $('#no_completado').modal('close');
                     })
+                }
             }
-            else{
-                $("#horas_ayuno3").html($("#h").text() + "hrs")
-                $("#racha_ayuno3").html(_user.Fast_Hit)
-                $('#ayuno_invalido').modal('open'); 
-                $('#terminar').one('click',function() {
-                    clearInterval(fastint);
-                    reached = false
-                    localStorage.removeItem('Fast_Start');
-                    $("#h").html("0")
-                    $("#m").html("00")
-                    $("#s").html("00")
-                    $('#cont').attr('data-pct', 0);
-                    $('#control').removeClass('pause_fast')
-                    $('#control').addClass('start_fast')
-                    $e.text("Iniciar");
-                }) 
-                $('#cancelar').click(function() {
-                    $('#no_completado').modal('close');
-                })
-            }
+        });
+    
+    } 
+    else if(!_user){ 
+        window.location.href = 'profile.html';
         }
-    });
-}); 
-
+    }); 
 function updateDate(_cc) {
     var c = new Date();
     timeDifference(_cc, c);

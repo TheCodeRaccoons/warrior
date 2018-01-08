@@ -14,6 +14,7 @@ $(document).ready(function(){
         $("#height").html(_user.User_height) 
     //if the localstorage object does not exist... well, create one...
     }else{ 
+    $("#bienvenido").modal('open');
     $( "#update" ).click(function() {
             var User =
                 {
@@ -37,7 +38,8 @@ $(document).ready(function(){
             $("#hit").append(0)   
             localStorage.setItem("User", JSON.stringify(User))
             _user = User 
-        alert("Cambios Realizados con exito")
+            alert("Cambios Realizados con exito") 
+            window.location.href = 'setings.html';
         })
     }
     $( "#update" ).click(function() {
