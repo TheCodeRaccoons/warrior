@@ -12,7 +12,6 @@ $(document).ready(function(){
         $("#User_height").val(_user.User_height)
         $("#weight").html(_user.User_Weigth)
         $("#height").html(_user.User_height) 
-        $("#Target_Fast").val(_user.Target_Fast)  
     //if the localstorage object does not exist... well, create one...
     }else{
         
