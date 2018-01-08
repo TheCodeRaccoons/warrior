@@ -57,7 +57,7 @@ $(document).ready(function() {
                 fastint;
             } else {
                 var moment = new Date()  
-                if(parseInt($("#h").html()) >= _user.Target_Fast){ 
+                if(parseInt($("#h").html()) >= _user.Target_Fast){
                     $("#percent").html(parseInt(cont.getAttribute('data-pct')))
                     $("#inicio_ayuno").html(time.toLocaleTimeString())
                     $("#fin_ayuno").html(moment.toLocaleTimeString())

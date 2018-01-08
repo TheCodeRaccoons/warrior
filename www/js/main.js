@@ -22,7 +22,7 @@ $(document).ready(function () {
             $("#User_gender").val(_user.User_gender)
             $("#Target_Fast").val(_user.Target_Fast)  
             $("#Target_Time").html(_user.Target_Fast + " hrs")
-            if(_user.User_Fasts.length < 0){
+            if(_user.User_Fasts.length > 0){
                 for(var x = 0; x < _user.User_Fasts.length; x++){
                     average = average + _user.User_Fasts[x].total_fast_time 
                     console.log(average)
