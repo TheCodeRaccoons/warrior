@@ -34,8 +34,8 @@ $(document).ready(function () {
                 $("#total").html(0 + " hrs") 
             }
         }
-        else if(!_user && window.location.href != "file:///android_asset/www/profile.html"){
-            window.location.href = 'file:///android_asset/www/profile.html';
+        else if(!_user && window.location.href != "/android_asset/www/profile.html"){
+            window.location.href = '/android_asset/www/profile.html';
         }
 });
 function getIMC(peso, altura)
