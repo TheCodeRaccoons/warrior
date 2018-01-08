@@ -2,6 +2,9 @@ var _user
 var average = 0
 /* Slider */
 $(document).ready(function () {
+    
+    url=window.location.href;
+    alert(url)
     DeviceTypeCheck();
     // Initialize collapse button
     $(".button-collapse").sideNav();
