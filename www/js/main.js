@@ -37,7 +37,7 @@ $(document).ready(function () {
         }
         else if(!_user && window.location.href != "file:///var/mobile/Containers/Data/Application/5EA7B482-0972-4ABE-8A60-C5443C1AB343/Library/NoCloud/hidra/www/profile.html" || !_user && window.location.href != "profile.html"){
         url=window.location.href;
-        alert(url)      
+        //alert(url)      
         window.location.href = 'profile.html';
         }
 });
