@@ -1,7 +1,7 @@
 var _user
 var average = 0
 /* Slider */
-$(document).ready(function () { 
+$(document).ready(function () {
     DeviceTypeCheck();
     // Initialize collapse button
     $(".button-collapse").sideNav();
@@ -33,6 +33,9 @@ $(document).ready(function () {
                 $("#avg").html(0 + " hrs")
                 $("#total").html(0 + " hrs") 
             }
+        }
+        else if(!_user && window.location.href == "file:///android_asset/www/index.html"){
+            window.location.href = 'profile.html';
         }
 });
 function getIMC(peso, altura)
