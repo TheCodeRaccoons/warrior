@@ -49,23 +49,15 @@ $(document).ready(function() {
             }, 1000);
             fastint;
         } else {
-            var moment = new Date() 
-            $("#percent").html(parseInt(cont.getAttribute('data-pct')))
-            $("#inicio_ayuno").html(time.toLocaleTimeString())
-            $("#fin_ayuno").html(moment.toLocaleTimeString())
-            $("#horas_ayuno").html($("#h").text() + "hrs")
-            $("#minutos_ayuno").html($("#m").text() + "min")
-            $("#racha_ayuno").html(_user.Fast_Hit) 
-            $("#prox_ayuno").html("0")
-            $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
-            $("#inicio_ayuno2").html(time.toLocaleTimeString())
-            $("#fin_ayuno2").html(moment.toLocaleTimeString())
-            $("#horas_ayuno2").html($("#h").text() + "hrs")
-            $("#minutos_ayuno2").html($("#m").text() + "min")
-            $("#racha_ayuno2").html(_user.Fast_Hit) 
-            $("#prox_ayuno2").html("0")
-
-            if($("#h").html() >= _user.Target_Fast){ 
+            var moment = new Date()  
+            if(parseInt($("#h").html()) >= _user.Target_Fast){ 
+                $("#percent").html(parseInt(cont.getAttribute('data-pct')))
+                $("#inicio_ayuno").html(time.toLocaleTimeString())
+                $("#fin_ayuno").html(moment.toLocaleTimeString())
+                $("#horas_ayuno").html($("#h").text() + "hrs")
+                $("#minutos_ayuno").html($("#m").text() + "min")
+                $("#racha_ayuno").html(_user.Fast_Hit) 
+                $("#prox_ayuno").html("0")
                 clearInterval(fastint);
                 $('#completado').modal('open');
                 reached = true
@@ -89,7 +81,14 @@ $(document).ready(function() {
                 $('#control').addClass('start_fast')
                 $e.text("Iniciar");
                 isRunning = false; 
-            }else{
+            }
+            else if(parseInt($("#h").html()) >= 12 && parseInt($("#h").html()) <= _user.Target_Fast ){
+                $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
+                $("#inicio_ayuno2").html(time.toLocaleTimeString())
+                $("#fin_ayuno2").html(moment.toLocaleTimeString())
+                $("#horas_ayuno2").html($("#h").text() + "hrs")
+                $("#minutos_ayuno2").html($("#m").text() + "min")
+                $("#racha_ayuno2").html(_user.Fast_Hit)
                 $('#no_completado').modal('open'); 
                     $('#terminar').one('click',function() { 
                         clearInterval(fastint);
@@ -117,6 +116,26 @@ $(document).ready(function() {
                     $('#cancelar').click(function() {
                         $('#no_completado').modal('close');
                     })
+            }
+            else{
+                $("#horas_ayuno3").html($("#h").text() + "hrs")
+                $("#racha_ayuno3").html(_user.Fast_Hit)
+                $('#ayuno_invalido').modal('open'); 
+                $('#terminar').one('click',function() {
+                    clearInterval(fastint);
+                    reached = false
+                    localStorage.removeItem('Fast_Start');
+                    $("#h").html("0")
+                    $("#m").html("00")
+                    $("#s").html("00")
+                    $('#cont').attr('data-pct', 0);
+                    $('#control').removeClass('pause_fast')
+                    $('#control').addClass('start_fast')
+                    $e.text("Iniciar");
+                }) 
+                $('#cancelar').click(function() {
+                    $('#no_completado').modal('close');
+                })
             }
         }
     });
