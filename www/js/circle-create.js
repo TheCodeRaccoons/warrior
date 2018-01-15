@@ -14,6 +14,13 @@ $(document).ready(function() {
                 window.location.href = 'setings.html';
             })
         }
+        if(!_user.accept_disclaimer){ 
+            $("#aceptaDisclaimer_modal").modal('open') 
+            $('#AceptaDisclaimer').click(function() {
+                _user.accept_disclaimer = true;
+                localStorage.setItem("User",  JSON.stringify(_user))
+            })
+        }
         /* Percentage and time show */
         if (localStorage.getItem("Fast_Start")) {
             time = new Date(localStorage.getItem("Fast_Start"));

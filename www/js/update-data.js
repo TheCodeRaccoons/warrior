@@ -43,7 +43,8 @@ $(document).ready(function(){
                         "Mas_del_Mes": 0,           // Completar una racha de > 31 ayunos
                         "Soy_Guerrero": 0           // Completar una racha de > 60 ayunos
                     },    
-                    "ultimo_logro": null
+                    "ultimo_logro": null,
+                    "accept_disclaimer": null
                 } 
             
             $("#imc").html(getIMC($('#User_Weigth').val(), $('#User_height').val())) 
