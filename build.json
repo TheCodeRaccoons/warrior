@@ -1,0 +1,11 @@
+{
+    "andorid" :{
+        "release":{
+            "keystore" : "warrior.keystore",
+            "storePassword" : "Jorch1304",
+            "alias" : "warrior",
+            "password" : "Jorch1304",
+            "keystoreType" : ""
+        }
+    }
+}
