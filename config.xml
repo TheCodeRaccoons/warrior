@@ -1,5 +1,5 @@
 <?xml version='1.0.1' encoding='utf-8'?>
-<widget id="com.coderaccoons.warrior" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0.1">
+<widget id="com.coderaccoons.warrior" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Warrior</name>
     <description>
         Intermitent Fasting Helper, Keep track of your fast and get cool tips daily!
