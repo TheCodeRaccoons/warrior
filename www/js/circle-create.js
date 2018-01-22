@@ -159,7 +159,33 @@ $(document).ready(function() {
             }
         });
     
-    } 
+        $('#restart').one('click',function() {
+            $('#reiniciarAyuno').modal('open'); 
+            $("#fasted_hours").html($("#h").text())
+            $('#reiniciar').one('click',function() {  
+                $("#h").html("0")
+                $("#m").html("00")
+                $("#s").html("00")
+                $('#inicio').html(" ")
+                $('#fin').html(" ")
+                clearInterval(fastint);
+                var cc = new Date();
+                var a = cc.getTime();
+                ms = Math.abs(a - cc);
+                cc.setTime(a);
+                getMonthAndDate(cc)
+                time = cc
+                localStorage.setItem("Fast_Start", cc);
+                fastint = window.setInterval(function() {
+                    updateDate(cc)
+                }, 1000);
+                fastint;
+            }) 
+            $('#cancelar_reinicio').click(function() {
+                $('#reiniciarAyuno').modal('close');
+            })
+        });
+    }
     else if(!_user){ 
         window.location.href = 'profile.html';
         }
