@@ -159,7 +159,7 @@ $(document).ready(function() {
             }
         });
     
-        $('#restart').one('click',function() {
+        $('#restart').click(function() {
             $('#reiniciarAyuno').modal('open'); 
             $("#fasted_hours").html($("#h").text())
             $('#reiniciar').one('click',function() {  
