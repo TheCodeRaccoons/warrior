@@ -9,7 +9,7 @@
     </author>    
 
     <!-- App Prefferences --> 
-    <preference name="orientation" value="landscape" />
+    <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
 
     <!-- all platforms --> 
