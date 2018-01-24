@@ -4,6 +4,7 @@ var showMore
 var month = new Array();
 var showArray
 $(document).ready(function() { 
+
     month[0] = "Enero";
     month[1] = "Febrero";
     month[2] = "Marzo";
@@ -16,23 +17,37 @@ $(document).ready(function() {
     month[9] = "Octubre";
     month[10] = "Noviembre";
     month[11] = "Diciembre"; 
+
     _user = JSON.parse(localStorage.getItem('User'))
-    if(_user){ 
+
+    if(_user)
+    { 
         _user.User_Fasts.reverse()  
         LoadMore()
-    }else{
+    }
+    else
+    {
         alert('Por favor dirijase a la seccion de perfil para darse de alta')
     }
 });
+
 $( "#LoadMore" ).click(function() { 
     LoadMore()
 })
+
 function LoadMore(){
     showMore = i + 5
     showArray = _user.User_Fasts.slice(i , showMore)  
-    if(showArray.length <= 0){
-        //send alert no data
-    }else{
+    if(showArray.length <= 0)
+    {
+        //send alert no data 
+        $('#noHistoryFound').modal('open');
+        $('#startFast').one('click',function() {  
+            window.location.href = 'index.html';
+        });
+    }
+    else
+    {
         for(var x = 0; x < showArray.length; x++){
             var showStartdate = new Date(showArray[x].Start_Date)
             var showEndDate = new Date(showArray[x].Finish_Date) 

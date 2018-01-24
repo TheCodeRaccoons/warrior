@@ -75,6 +75,7 @@ $(document).ready(function() {
         }
     });
 
+//--- Complete the fast and open modal
 function FastCompleted(e)
 { 
     $("#percent").html(parseInt(cont.getAttribute('data-pct')))
@@ -115,6 +116,7 @@ function FastCompleted(e)
     })
 }
 
+//--- finish an failed fast and open modal
 function FastNotCompleted(e)
 {
     $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
@@ -153,6 +155,7 @@ function FastNotCompleted(e)
         })
 }
 
+//--- Finish an invalid fast and open modal
 function InvalidFast(e)
 {
     $("#horas_ayuno3").html($("#h").text() + "hrs")
@@ -177,6 +180,7 @@ function InvalidFast(e)
     })
 }
 
+//--- Start Fasting
 function StartFast(e)
 {
     isRunning = true;
@@ -197,12 +201,14 @@ function StartFast(e)
     fastint 
 }
 
+//--- Runs method to keep the counter and the load bar mooving 
 function updateDate(_cc)
 {
     var c = new Date();
     timeDifference(_cc, c);
 }
 
+//--- Generates the data that will be shown while fasting
 function timeDifference(d, dd) 
 {
     var second = 1 * 1000,
@@ -247,6 +253,7 @@ function timeDifference(d, dd)
     return $("#h").html(hours), $("#m").html(formattedMinutes), $("#s").html(seconds)
 }
 
+//--- Parse the date to show
 function getMonthAndDate(d)
 {
     var month = new Array();

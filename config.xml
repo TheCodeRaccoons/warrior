@@ -1,12 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.coderaccoons.warrior" versionCode="10003" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.coderaccoons.warrior" versionCode="10004" version="1.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Se Guerrero</name>
     <description>
         Intermitent Fasting Helper, Keep track of your fast and get cool tips daily!
     </description>
     <author email="jacortez_94@hotmail.com" href="http://thecoderaccoons.com">
         The Code Raccoons
-    </author>
+    </author>    
+
+    <!-- App Prefferences --> 
+    <preference name="orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+
+    <!-- all platforms --> 
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
