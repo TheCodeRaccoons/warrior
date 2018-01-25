@@ -23,6 +23,9 @@ $(document).ready(function() {
 
     if(_user)
     { 
+        $(".name").html(_user.User_Name) 
+        $("#imc").html(_user.IMC) 
+        $("#Target_Time").html(_user.Target_Fast + " hrs")
         if(_user.User_Fasts.length > 0){
             for(var x = 0; x < _user.User_Fasts.length; x++){
                 average = average + _user.User_Fasts[x].total_fast_time 

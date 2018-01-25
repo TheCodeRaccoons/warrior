@@ -150,6 +150,13 @@
         </ul> 
     </div>
     <!--Import jQuery before materialize.js-->  
-    <script type="text/javascript " src="js/main.js "></script>
+    <script type="text/javascript ">
+            _user = JSON.parse(localStorage.getItem('User')) 
+        //console.log(_user)
+        if(_user){ 
+            $(".name").html(_user.User_Name)  
+        }
+        </script>
+    <script type="text/javascript " src="js/main.js "></script> 
   </body>
 </html>
