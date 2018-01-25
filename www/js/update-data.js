@@ -4,14 +4,16 @@ $(document).ready(function(){
     //Check if the User data exists
     console.log(_user)
     if(_user){
-        //Get the data of the object and add it to the add-data section  
-        console.log(_user.User_gender)
+        //Get the data of the object and add it to the add-data section
         $("#User_Name").val(_user.User_Name)
         $(".name").html(_user.User_Name) 
         $("#User_Age").val(_user.User_Age)
         $("#hit").html(_user.Fast_Hit)
-        $("#User_gender").val(_user.User_gender)  
-        console.log(_user.User_gender)
+
+        //Set Select value and reinitialize the material_select widget
+        $('#User_gender').val(_user.User_gender)   
+        $('#User_gender').material_select();
+
         $("#User_Weigth").val(_user.User_Weigth)
         $("#User_height").val(_user.User_height)
         $("#weight").html(_user.User_Weigth)
