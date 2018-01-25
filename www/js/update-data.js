@@ -9,6 +9,7 @@ $(document).ready(function(){
         $("#User_Name").val(_user.User_Name)
         $(".name").html(_user.User_Name) 
         $("#User_Age").val(_user.User_Age)
+        $("#hit").html(_user.Fast_Hit)
         $("#User_gender").val(_user.User_gender)  
         console.log(_user.User_gender)
         $("#User_Weigth").val(_user.User_Weigth)
