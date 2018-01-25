@@ -8,6 +8,7 @@ var reached;
 $(document).ready(function() {
     _user = JSON.parse(localStorage.getItem('User')) 
     if(_user){
+         $(".name").html(_user.User_Name) 
         //--- If there is a user check for a Fast Goal and the Disclaimer Accepted
         if(!_user.Target_Fast){
             $("#agregar_meta").modal('open')
