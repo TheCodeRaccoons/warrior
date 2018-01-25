@@ -5,8 +5,9 @@ $(document).ready(function(){
     console.log(_user)
     if(_user){
         //Get the data of the object and add it to the add-data section  
+        $("#User_Name").val(_user.User_Name)
         $("#User_Age").val(_user.User_Age)
-        //$("#User_gender").val(_user.User_gender)  
+        $("#User_gender").val(_user.User_gender)  
         console.log(_user.User_gender)
         $("#User_Weigth").val(_user.User_Weigth)
         $("#User_height").val(_user.User_height)

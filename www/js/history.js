@@ -3,6 +3,7 @@ var i = 0
 var showMore
 var month = new Array();
 var showArray
+var average = 0
 $(document).ready(function() { 
 
     month[0] = "Enero";
@@ -22,6 +23,22 @@ $(document).ready(function() {
 
     if(_user)
     { 
+        if(_user.User_Fasts.length > 0){
+            for(var x = 0; x < _user.User_Fasts.length; x++){
+                average = average + _user.User_Fasts[x].total_fast_time 
+                console.log(average)
+            }
+            average = average / _user.User_Fasts.length
+            $("#avg").html(average.toFixed(2) + " hrs")
+            $("#total").html(_user.Total_Fast_Time + " hrs") 
+        }
+        else{
+            //send alert no data 
+            $('#noHistoryFound').modal('open');
+            $("#avg").html(0 + " hrs")
+            $("#total").html(0 + " hrs") 
+        }
+
         _user.User_Fasts.reverse()  
         LoadMore()
     }
@@ -40,8 +57,6 @@ function LoadMore(){
     showArray = _user.User_Fasts.slice(i , showMore)  
     if(showArray.length <= 0)
     {
-        //send alert no data 
-        $('#noHistoryFound').modal('open');
         $('#startFast').one('click',function() {  
             window.location.href = 'index.html';
         });

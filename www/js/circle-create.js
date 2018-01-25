@@ -51,7 +51,6 @@ $(document).ready(function() {
                 //---
                 StartFast($(this))
             } else {
-                var moment = new Date()  
                 if(parseInt($("#h").html()) >= _user.Target_Fast)
                 {
                     //---
@@ -78,6 +77,7 @@ $(document).ready(function() {
 //--- Complete the fast and open modal
 function FastCompleted(e)
 { 
+    var moment = new Date()  
     $("#percent").html(parseInt(cont.getAttribute('data-pct')))
     $("#inicio_ayuno").html(time.toLocaleTimeString())
     $("#fin_ayuno").html(moment.toLocaleTimeString())
