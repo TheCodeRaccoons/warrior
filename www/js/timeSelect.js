@@ -39,12 +39,12 @@ var MS = new MobileSelect({
 
 function getYesterdaysDate() {
     var date = new Date();
-    date.setDate(date.getDate()-2);
+    date.setDate(date.getDate()-10);
     return  (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
 }
 function getNextDate() {
     var date = new Date();
-    date.setDate(date.getDate()+12);
+    date.setDate(date.getDate() + 1);
     return  (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
 }
 
