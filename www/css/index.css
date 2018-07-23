@@ -173,6 +173,11 @@ margin-bottom: 0px !important;
 }
 
 .profile_area{
+    /*background: url('../img/lpbg.png')no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
     background: #E8F3FB;
 }
 
