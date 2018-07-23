@@ -107,7 +107,6 @@ margin-bottom: 0px !important;
 
 .main_content{
     padding-top: 50px; 
-    /*background: #E8F3FB;*/
     margin-bottom: 0px !important;
 }
 
@@ -171,4 +170,8 @@ margin-bottom: 0px !important;
 
 .text_glow{
     text-shadow: 0 0 0.5em #0883DB;
+}
+
+.profile_area{
+    background: #E8F3FB;
 }
