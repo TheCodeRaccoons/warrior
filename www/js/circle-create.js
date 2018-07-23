@@ -127,6 +127,7 @@ function FastCompleted(e)
 //--- finish an failed fast and open modal
 function FastNotCompleted(e)
 {
+    var moment = new Date()  
     $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
     $("#inicio_ayuno2").html(time.toLocaleTimeString())
     $("#fin_ayuno2").html(moment.toLocaleTimeString())
