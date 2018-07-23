@@ -5,8 +5,10 @@ var time;
 var _user;
 var reached;
 
-$(document).ready(function() {
+$(document).ready(function() 
+{
     _user = JSON.parse(localStorage.getItem('User')) 
+    console.log(_user)
     if(_user){
          $(".name").html(_user.User_Name) 
         //--- If there is a user check for a Fast Goal and the Disclaimer Accepted
@@ -31,6 +33,7 @@ $(document).ready(function() {
             $('#inicio').html(" "+ time.getDay() + "<br>" +time.toLocaleTimeString())
             var storedTime = time.getTime();
             getMonthAndDate(localStorage.getItem("Fast_Start"))
+            updateDate(storedTime)
             fastint = window.setInterval(function() {
                 updateDate(storedTime)
             }, 1000);
@@ -39,7 +42,9 @@ $(document).ready(function() {
             $('#control').text("Detener")
             $('#control').addClass('pause_fast')
             $('#restart_section').html('<div id="restart"><img src="img/restart.png" width="100%"></div>')
+            $('#edit').html('<img src="img/edit.png" width="15%" onClick="wth()">')
         } else {
+            $('#edit').html('<br>')
             $('#control').text("Iniciar")
             $('#control').addClass('start_fast')
             $("#h").html("0")
@@ -75,7 +80,8 @@ $(document).ready(function() {
         }
     });
 
-//--- Complete the fast and open modal
+
+    //--- Complete the fast and open modal
 function FastCompleted(e)
 { 
     var moment = new Date()  
@@ -108,9 +114,10 @@ function FastCompleted(e)
         $('#cont').attr('data-pct', 0);
         $('#control').removeClass('pause_fast')
         $('#control').addClass('start_fast')
-        $e.text("Iniciar");
+        e.text("Iniciar");
+        $('#edit').html('<br>')
         isRunning = false;
-        $('#restart_section').html('')
+        $('#restart_section').html('') 
     })
     $('#cancelar').click(function() {
         $('#completado').modal('close');
@@ -148,8 +155,9 @@ function FastNotCompleted(e)
             $('#cont').attr('data-pct', 0);
             $('#control').removeClass('pause_fast')
             $('#control').addClass('start_fast')
-            $e.text("Iniciar");
-            $('#restart_section').html('')
+            e.text("Iniciar");
+            $('#edit').html('<br>')
+            $('#restart_section').html('') 
         }) 
         $('#cancelar_no_completado').click(function() {
             $('#no_completado').modal('close');
@@ -174,6 +182,7 @@ function InvalidFast(e)
         $('#control').addClass('start_fast')
         e.text("Iniciar");
         $('#restart_section').html('')
+        $('#edit').html('<br>')
         isRunning = false;
     })
     $('#cancelar_invalido').click(function() {
@@ -196,6 +205,7 @@ function StartFast(e)
     time = cc
     localStorage.setItem("Fast_Start", cc);
     $('#restart_section').html('<div id="restart"><img src="img/restart.png" width="100%"></div>')
+    $('#edit').html('<img src="img/edit.png" width="15%">')
     fastint = window.setInterval(function() {
         updateDate(cc)
     }, 1000);
@@ -298,8 +308,9 @@ $(document).on('click','#restart',function(){
     getMonthAndDate(cc)
     time = cc
     localStorage.setItem("Fast_Start", cc);
+    updateDate(cc);
     fastint = window.setInterval(function() {
-        updateDate(cc)
+        updateDate(cc);
     }, 1000);
     fastint;
     })
@@ -307,3 +318,4 @@ $(document).on('click','#restart',function(){
         $('#reiniciarAyuno').modal('close');
 })
 });
+ 

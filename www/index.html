@@ -8,6 +8,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"/>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/indexText.css" />
     <link rel="stylesheet" type="text/css" href="css/materialize.clockpicker.css" />
     <!--Import Materialize and FA FA Icon + Font-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -16,6 +17,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/mobileSelect.css">
 </head>
 
 <body> 
@@ -54,17 +56,17 @@
         <span data-activates="slide-out" style="float:left" class="button-collapse open_menu">&#9776</span> 
         <span class="title" style="padding-left:-25px">Se Guerrero</span>
     </div>
-    <div id="main_content" class="row main_content">
+    <div id="main_content" class="row main_content text_glow">
         <div class="col s12 "> 
             <div class="row" style="margin-bottom:5px !important; margin-top:20%;">
-                <div class="col s4 center" id="h">0</div>
-                <div class="col s4 center" id="m">0</div>
-                <div class="col s4 center" id="s">0</div>
+                <div class="col s4 center " id="h">0</div>
+                <div class="col s4 center " id="m">0</div>
+                <div class="col s4 center " id="s">0</div>
             </div>
             <div class="row" style="margin-bottom:5px !important">
-                <div class="col s4 center">Horas</div>
-                <div class="col s4 center">Minutos</div>
-                <div class="col s4 center">Segundos</div>
+                <div class="col s4 center ">Horas</div>
+                <div class="col s4 center ">Minutos</div>
+                <div class="col s4 center ">Segundos</div>
             </div>
         </div>
         <div class="col s12 "> 
@@ -81,24 +83,21 @@
         
     <div id="main_content" class="row">
         <div class="col s12 ">
-            <div class="row" style="margin-bottom:5px !important">
-                <div class="col s5 center">
-                    Inicio en:<br>
+            <div class="row text_glow" style="margin-bottom:5px !important">
+                <div class="col s5 center"><div id="edit"></div>
+                    Inicio:
                     <span id="inicio"></span>
                 </div> 
                 <div class="col s2 center" id="restart_section">
                 </div>
                 <div class="col s5 center">
-                    Termina en:<br>
+                    <br>Termina:
                     <span id="fin"></span>
                 </div>
             </div>
         </div>
-    </div>  
-</body>
-
-
-  <!-- Modal Termino ayuno completado -->
+    </div> 
+      <!-- Modal Termino ayuno completado -->
   <div id="completado" class="modal modal-fixed-footer">
     <div class="modal-content center-align">
         <h3>Buen trabajo!</h3>
@@ -160,30 +159,31 @@
       </div>
     </div>
     
-      <!--  Modal Termino ayuno no completado -->
-      <div id="agregar_meta" class="modal modal-fixed-footer">
+    <!--  Modal Termino ayuno no completado -->
+    <div id="agregar_meta" class="modal modal-fixed-footer">
         <div class="modal-content center-align">
             <h2>Woops!</h2>
             <h5>Parece ser que aun no has establecido una meta de ayuno</h5>
             <p> Presiona continuar para establecerla</p>
         </div>
         <div class="modal-footer center-align">
-          <a id="continuar" class="modal-action modal-close waves-effect waves-green btn-flat">continuar</a>
+            <a id="continuar" class="modal-action modal-close waves-effect waves-green btn-flat">continuar</a>
         </div>
-      </div>
+    </div>
 
-      <!--  Modal Med. disclaimer -->
-      <div id="aceptaDisclaimer_modal" class="modal modal-fixed-footer">
+    <!--  Modal Med. disclaimer -->
+    <div id="aceptaDisclaimer_modal" class="modal modal-fixed-footer">
         <div class="modal-content center-align"> 
-            <h5>Disclaimer Medico</h5><br>
+            <h5>Aviso Medico</h5><br>
                 Debes Consultar con tu profesional Medico antes de comenzar cualquier programa de ayuno.
                 Esta aplicacion y la informacion en ella, incluyendo texto, imagenes, graficos y todo tipo de contenido son solo con 
                 proposito informativo y educacional y no se debe considerar como reemplazo a la opinion de un medico.
         </div>
         <div class="modal-footer center-align">
-          <a id="AceptaDisclaimer" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            <a id="AceptaDisclaimer" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
         </div>
-      </div>
+    </div> 
+</body>
 
     <!--  Modal Reiniciar -->
     <div id="reiniciarAyuno" class="modal modal-fixed-footer">
@@ -203,5 +203,7 @@
     <script type="text/javascript " src="js/materialize.min.js"></script>
     <script type="text/javascript " src="js/main.js "></script>
     <script type="text/javascript " src="js/circle-create.js"></script> 
+    <script type="text/javascript " src="js/mobileSelect.js"></script>
+    <script type="text/javascript " src="js/timeSelect.js"></script>
 
 </html>

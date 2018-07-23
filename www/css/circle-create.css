@@ -36,7 +36,7 @@
     line-height: 160px;
     font-size: 2em;
     text-shadow: 0 0 0.5em #0883DB;
-    color: #06548c
+    color: #fff
 }  
 
 
@@ -60,7 +60,7 @@
     font-weight: 400;
     text-align: center;
     z-index: 15;
-    color: #06548c;
+    color: #fff;
 }
 
 
@@ -72,5 +72,6 @@
     font-weight: 700;
     text-align: center;
     z-index: 15;
-    color: #06548c;
+    color: #fff;
+    text-shadow: 0 0 0.5em #0883DB;
 }
