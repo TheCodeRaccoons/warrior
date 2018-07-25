@@ -93,16 +93,30 @@
 		    	for(var i=0; i<_this.wheel.length; i++){
 		    		i==_this.wheel.length-1 ? tempValue += _this.getInnerHtml(i) : tempValue += _this.getInnerHtml(i) + _this.connector;
 				}
+				//---
 					tempValue = tempValue.replace(" : ", ":");
-					cc = new Date(tempValue)
-					getMonthAndDate(cc);
-					localStorage.setItem("Fast_Start", cc);
-    				clearInterval(fastint);
-					updateDate(cc)
-					fastint = window.setInterval(function() {
+					console.log(tempValue)
+					cc = new Date(tempValue);
+					console.log(cc)
+					cd = new Date();
+					console.log(cd)
+					console.log(validateDate(cc,cd));
+					if(validateDate(cc,cd))
+					{
+						getMonthAndDate(cc);
+						localStorage.setItem("Fast_Start", cc);
+						clearInterval(fastint);
 						updateDate(cc)
-					}, 1000);
-					fastint;
+						fastint = window.setInterval(function() {
+							updateDate(cc)
+						}, 1000);
+						fastint;
+						SendMessage("Se actualizo la fecha de inicio de su ayuno.", "Actualizacion Realizada");
+					}
+					else
+					{
+						SendMessage("Por favor, seleccione una fecha / hora anterior a la actual.", "Fecha invalida");
+					}
 		    	_this.curIndexArr = _this.getIndexArr();
 		    	_this.curValue = _this.getCurValue();
 		    	_this.callback(_this.curIndexArr, _this.curValue);
@@ -702,3 +716,17 @@
 		window.MobileSelect = MobileSelect;
 	}
 })();
+
+function validateDate(d1, d2)
+{ 
+	console.log(d1);
+	console.log(d2);
+	return +d1 <= +d2
+}
+
+function SendMessage(message, title)
+{
+	$('#title').html(title)
+	$('#message').html(message)
+	$("#sendMessageModal").modal('open')
+}

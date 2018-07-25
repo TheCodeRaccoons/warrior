@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.coderaccoons.warrior" versionCode="10019" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.coderaccoons.warrior" versionCode="10020" version="2.1.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Se Guerrero</name>
     <description>
         Intermitent Fasting Helper, Keep track of your fast and get cool tips daily!
