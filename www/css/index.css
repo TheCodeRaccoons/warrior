@@ -131,6 +131,12 @@ margin-bottom: 0px !important;
     color: #FFFFFF;
 }
 
+/*Profile Page Styles*/
+.blue_bar{
+    background: #0883DB !important;
+    color: #FFFFFF;
+}
+
 
 #circleBar-web-text{
     font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;

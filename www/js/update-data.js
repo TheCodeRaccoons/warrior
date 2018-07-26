@@ -78,7 +78,6 @@ $(document).ready(function(){
         localStorage.setItem("User",  JSON.stringify(_user))
         alert("Cambios Realizados con exito")
     })
-
 })
  
 
