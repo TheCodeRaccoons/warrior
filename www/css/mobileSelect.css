@@ -49,7 +49,7 @@
 }
 .mobileSelect .content .btnBar {
   border-bottom: 1px solid #DCDCDC;
-  font-size: 15px;
+  font-size: 14px;
   height: 45px;
   position: relative;
   text-align: center;
@@ -109,12 +109,13 @@
   transition: transform 0.18s ease-out, -webkit-transform 0.18s ease-out;
 }
 .mobileSelect .content .panel .wheel .selectContainer li {
-  font-size: 15px;
+  font-size: 14px;
   display: block;
   height: 40px;
   line-height: 40px;
   cursor: pointer;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

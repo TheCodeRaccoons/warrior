@@ -91,10 +91,21 @@
 			    }
 				var tempValue ='';
 		    	for(var i=0; i<_this.wheel.length; i++){
-		    		i==_this.wheel.length-1 ? tempValue += _this.getInnerHtml(i) : tempValue += _this.getInnerHtml(i) + _this.connector;
+					i==_this.wheel.length-1 ? tempValue += _this.getInnerHtml(i) : tempValue += _this.getInnerHtml(i) + _this.connector;
+				}
+				
+				for(i = 0; i < printableDateArr.length; i++)
+				{
+					if(tempValue.includes(printableDateArr[i]))
+					{
+						tempValue = tempValue.replace(printableDateArr[i], dateArr[i]);
+					}
 				}
 				//---
 					tempValue = tempValue.replace(" : ", ":");
+
+					tempValue = tempValue.replace("","");
+					
 					console.log(tempValue)
 					cc = new Date(tempValue);
 					console.log(cc)

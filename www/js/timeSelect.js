@@ -10,9 +10,9 @@ var numArr=['1','2','3','4','5'];
 var amPmArr=['AM','PM'];
 
 var dateArr = GetDateArr(getYesterdaysDate(),getNextDate())
+var printableDateArr = GetDateArrToPrint(getYesterdaysDate(),getNextDate())
  
 function wth(){
-
 MS
 }
 
@@ -20,20 +20,23 @@ var MS = new MobileSelect({
     trigger: '#edit',
     title: 'Hora de inicio',
     wheels: [
-                {data: dateArr },
+                {data: printableDateArr },
                 {data: hourArr12},
                 {data: minArr},
                 {data: amPmArr}
             ],
     position:[1, 2, 3],
-    transitionEnd:function(indexArr, data){
-        //console.log(data);
-        //console.log(getYesterdaysDate()); 
-        //console.log(getNextDate()); 
-        //console.log(GetDateArr(getYesterdaysDate(),getNextDate())); 
+    transitionEnd:function(indexArr, data)
+    { 
+        //console.log(data); 
     },
-    callback:function(indexArr, data){
+    callback:function(indexArr, data)
+    {/*
+        var dateWheel = indexArr + ''.split(',');
+        printableDateArr = dateArr[dateWheel[0]]
         console.log(data);
+        console.log('valid date: ' + printableDateArr);
+        data[0] = printableDateArr;*/
     }
 });
 
@@ -52,11 +55,45 @@ function GetDateArr(start, end)
 {
     var oneDay = 24*3600*1000;
     d1 = new Date(start);
-    d2 = new Date(end);
+    d2 = new Date(end); 
+
     for (var d=[],ms=d1*1,last=d2*1;ms<last;ms+=oneDay)
     {
-        dateCount = new Date(ms)
-        d.push( (dateCount.getMonth()+1) + '/' + dateCount.getDate() + '/' + dateCount.getFullYear() ); 
+        dateCount = new Date(ms) 
+
+        d.push( (dateCount.getMonth()+1) + '/' + dateCount.getDate() + '/' + dateCount.getFullYear() );  
     }
     return d;
 }
+
+function GetDateArrToPrint(start, end) 
+{
+    var oneDay = 24*3600*1000;
+    d1 = new Date(start);
+    d2 = new Date(end);
+    dES = [];
+
+    for (var d=[],ms=d1*1,last=d2*1;ms<last;ms+=oneDay)
+    {
+        fecha = new Date(ms); 
+        dES.push(getDayOfWeek(fecha.getDay()) + ' ' + fecha.getDate());
+    }
+    console.log(dES);
+    return dES;
+}
+
+function getDayOfWeek(d)
+{
+    var weekday = []
+    weekday[0] = "Domingo";
+    weekday[1] = "Lunes";
+    weekday[2] = "Martes";
+    weekday[3] = "Miercoles";
+    weekday[4] = "Jueves";
+    weekday[5] = "Viernes";
+    weekday[6] = "Sabado";
+
+    var n = weekday[d];
+    return n;
+}
+ 
