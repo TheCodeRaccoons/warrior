@@ -1,8 +1,11 @@
 $(document).ready(function(){
     //get the Users DB Json
     var _user = JSON.parse(localStorage.getItem('User')) 
+    
     //Check if the User data exists
     console.log(_user)
+    //Gather the current weight
+    var currWeight = _user.User_Weigth;
     if(_user){
         //Get the data of the object and add it to the add-data section
         $("#User_Name").val(_user.User_Name)
@@ -31,6 +34,7 @@ $(document).ready(function(){
                     "User_Weigth"       : $('#User_Weigth').val(),
                     "User_height"       : $('#User_height').val(),
                     "User_Fasts"        : [],
+                    "User_Weights"      : [],
                     "Total_Fast_Time"   : 0,
                     "Fast_Hit"          : 0,
                     "Target_Fast"       : null,
@@ -63,7 +67,9 @@ $(document).ready(function(){
             window.location.href = 'setings.html';
         })
     }
-    $( "#update" ).click(function() {
+    
+    $( "#update" ).click(function() 
+    {
         if($('#User_Name').val()){      _user.User_Name = $('#User_Name').val()}
         if($('#User_Age').val()){       _user.User_Age = $('#User_Age').val()}
         if($('#User_gender').val()){    _user.User_gender = $('#User_gender').val()}
@@ -74,11 +80,61 @@ $(document).ready(function(){
                                         $("#weight").html($('#User_Weigth').val()) 
                                         $("#height").html($('#User_height').val()) 
                                         $(".name").html($('#User_Name').val()) 
-                                        
-        localStorage.setItem("User",  JSON.stringify(_user))
-        alert("Cambios Realizados con exito")
+//---   Agregar los cambios de peso del usuario
+        if($('#User_Weigth').val())
+        {
+            console.log(currWeight);
+            var Progress = parseInt($('#User_Weigth').val() - currWeight)
+            var cc = new Date();
+            if(_user.hasOwnProperty('User_Weights'))
+            {
+                _user['User_Weights'].push(
+                    {   
+                        "Weight_Date"       : getMonthAndDate(cc),
+                        "Weight"            : $('#User_Weigth').val(),
+                        "Progress"          : Progress
+                    });
+            }
+            else
+            {
+                _user.User_Weights = []
+                _user['User_Weights'].push(
+                    {   
+                        "Weight_Date"       : getMonthAndDate(cc),
+                        "Weight"            : $('#User_Weigth').val(),
+                        "Progress"          : Progress
+                    });
+            }
+                                            
+            localStorage.setItem("User",  JSON.stringify(_user))
+            console.log(_user);
+            alert("Cambios Realizados con exito")
+        }
     })
 })
+
+    //--- Parse the date to show
+    function getMonthAndDate(d)
+    {
+        var month = new Array();
+        month[0] = "Enero";
+        month[1] = "Febrero";
+        month[2] = "Marzo";
+        month[3] = "Abril";
+        month[4] = "Mayo";
+        month[5] = "Junio";
+        month[6] = "Julio";
+        month[7] = "Agosto";
+        month[8] = "Septiembre";
+        month[9] = "Octubre";
+        month[10] = "Noviembre";
+        month[11] = "Diciembre";
+
+        var showStartdate = new Date(d);
+        var n = month[showStartdate.getMonth()]; 
+        
+        return n +" "+ showStartdate.getDate() + "<br>" +showStartdate.toLocaleTimeString()
+    }
  
 
 

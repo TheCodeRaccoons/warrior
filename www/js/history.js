@@ -1,10 +1,12 @@
 var _user; 
 var i = 0
+var i_w = 0
 var showMore
+var showMore_weight
 var month = new Array();
 var showArray
 var average = 0
-$(document).ready(function() { 
+$(document).ready(function() {
 
     month[0] = "Enero";
     month[1] = "Febrero";
@@ -22,7 +24,7 @@ $(document).ready(function() {
     _user = JSON.parse(localStorage.getItem('User'))
 
     if(_user)
-    { 
+    {
         $(".name").html(_user.User_Name) 
         $("#imc").html(_user.IMC) 
         $("#Target_Time").html(_user.Target_Fast + " hrs")
@@ -43,7 +45,9 @@ $(document).ready(function() {
         }
 
         _user.User_Fasts.reverse()  
+        _user.User_Weights.reverse()  
         LoadMore()
+        LoadMore_weight()
     }
     else
     {
@@ -53,6 +57,10 @@ $(document).ready(function() {
 
 $( "#LoadMore" ).click(function() { 
     LoadMore()
+})
+
+$( "#LoadMore_weight" ).click(function() { 
+    LoadMore_weight()
 })
 
 function LoadMore(){
@@ -81,5 +89,26 @@ function LoadMore(){
             }
         }
         i = showMore;
+    }
+}
+
+function LoadMore_weight(){
+    showMore_weight = i_w + 5
+    showWeightArray = _user.User_Weights.slice(i_w , showMore_weight)  
+    if(showWeightArray.length <= 0)
+    { /*Do Nothing*/    }
+    else
+    {
+        for(var x = 0; x < showWeightArray.length; x++){ 
+            if(showWeightArray[x].Progress < 0)
+            {
+                $("#Weight_History").append('<div class="row" style="margin-bottom: 0 !important"><div class="col s12 m5"><div class="card-panel blueish-white border_green"><div class="row center-align" style="margin-bottom: 0 !important"><div class="col s4">Fecha: <br>' + showWeightArray[x].Weight_Date + '</div><div class="col s4">Peso: <br>' + showWeightArray[x].Weight + '</div><div class="col s4">Progreso: <br>' + showWeightArray[x].Progress +' Kg</div></div></div></div></div>'); 
+            }
+            else
+            {
+                $("#Weight_History").append('<div class="row" style="margin-bottom: 0 !important"><div class="col s12 m5"><div class="card-panel blueish-white border_red"><div class="row center-align" style="margin-bottom: 0 !important"><div class="col s4">Fecha: <br>' + showWeightArray[x].Weight_Date + '</div><div class="col s4">Peso: <br>' + showWeightArray[x].Weight + '</div><div class="col s4">Progreso: <br>' + showWeightArray[x].Progress +' Kg</div></div></div></div></div>'); 
+            }
+        }
+        i_w = showMore_weight;
     }
 }

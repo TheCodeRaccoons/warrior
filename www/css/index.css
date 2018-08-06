@@ -127,8 +127,9 @@ margin-bottom: 0px !important;
 
 /*Profile Page Styles*/
 .gray_bar{
-    background: #555557 !important;
+    background: #3f3f40 !important;
     color: #FFFFFF;
+    margin-bottom: 15px;
 }
 
 /*Profile Page Styles*/
@@ -162,7 +163,7 @@ margin-bottom: 0px !important;
 }
 
 .scroll-wrapper{  
-    padding-top: 78%;
+    padding-top: 82%;
 }
 .setings-wrapper{  
         padding-top: 15%;
