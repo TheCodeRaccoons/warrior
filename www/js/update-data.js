@@ -88,6 +88,7 @@ $(document).ready(function(){
             var cc = new Date();
             if(_user.hasOwnProperty('User_Weights'))
             {
+                _user.User_Last_Weight_Date = cc;
                 _user['User_Weights'].push(
                     {   
                         "Weight_Date"       : getMonthAndDate(cc),
@@ -97,6 +98,7 @@ $(document).ready(function(){
             }
             else
             {
+                _user.User_Last_Weight_Date = cc;
                 _user.User_Weights = []
                 _user['User_Weights'].push(
                     {   

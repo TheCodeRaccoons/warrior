@@ -197,3 +197,32 @@ margin-bottom: 0px !important;
 {
     color: #FFFFFF !important;
 }
+
+.input-container_hrs:after {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #e8f3e8;
+    content: 'Hrs';
+}
+
+.input-container_kg:after {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #e8f3e8;
+    content: 'Kg';
+}
+
+.input-container_cm:after {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #e8f3e8;
+    content: 'Cm';
+}
+
+.character-counter
+{
+    color: #e8f3e8;
+}
