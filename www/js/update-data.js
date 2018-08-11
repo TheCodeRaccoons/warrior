@@ -1,12 +1,15 @@
+var currWeight = "";
 $(document).ready(function(){
     //get the Users DB Json
     var _user = JSON.parse(localStorage.getItem('User')) 
     
     //Check if the User data exists
     console.log(_user)
-    //Gather the current weight
-    var currWeight = _user.User_Weigth;
-    if(_user){
+    if(_user)
+    {
+        //Gather the current weight
+        currWeight = _user.User_Weigth;
+
         //Get the data of the object and add it to the add-data section
         $("#User_Name").val(_user.User_Name)
         $(".name").html(_user.User_Name) 

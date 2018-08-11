@@ -123,6 +123,20 @@ $(document).ready(function()
             $('#edit').html('<br>')
             isRunning = false;
             $('#restart_section').html('') 
+            
+            if(GetDifDays(_user.User_Last_Weight_Date) > 14)
+            {
+                $('#daysSinceUpdate').html(GetDifDays(_user.User_Last_Weight_Date));
+                $('#actualizar_meta').modal('open');
+                $('#actualizar_peso').one('click',function() {
+                    window.location.href = 'profile.html';
+                });
+                
+            }
+            else
+            {
+                console.log(GetDifDays(_user.User_Last_Weight_Date))
+            }
         })
         $('#cancelar').click(function() {
             $('#completado').modal('close');
@@ -296,6 +310,14 @@ $(document).ready(function()
         $('#fin').html(nn +" "+ showEndDate.getDate() + "<br>" +showEndDate.toLocaleTimeString())
     }
 
+    function GetDifDays(date)
+    {
+        var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+        var firstDate = new Date(date);
+        var secondDate = new Date();
+
+        return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+    }
 
     //--- Restart Button
     $(document).on('click','#restart',function(){
