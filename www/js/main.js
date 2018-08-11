@@ -20,5 +20,5 @@ function getIMC(peso, altura)
 
 function getBuildVersion()
 {
-    $('#version').html('Open beta 2.1.5')
+    $('#version').html('Open beta 2.2.0')
 }
