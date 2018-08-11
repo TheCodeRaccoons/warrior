@@ -9,7 +9,8 @@ $(document).ready(function()
 {
     _user = JSON.parse(localStorage.getItem('User')) 
     console.log(_user)
-    if(_user){
+    if(_user)
+    {
          $(".name").html(_user.User_Name) 
         //--- If there is a user check for a Fast Goal and the Disclaimer Accepted
         if(!_user.Target_Fast){
@@ -83,7 +84,18 @@ $(document).ready(function()
     {
         location.reload();
     })
+
+    if (!_user.hasOwnProperty("User_Last_Weight_Date")) 
+    {  
+        
+        $('#ingresar_meta').modal('open');
+        $('#ingresar_peso').one('click',function() {
+            window.location.href = 'profile.html';
+        });
+    }
+
 });
+
 
 
     //--- Complete the fast and open modal
