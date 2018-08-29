@@ -30,15 +30,15 @@
                 </li>
         <!--/ Username and image-->
         <!--Menu-->
-            <li><a class="waves-effect" href="index.html">Inicio</a></li>
+            <li><a class="waves-effect" href="index.html" id="menu_start">Inicio</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect"  href="profile.html">Perfil</a></li>
+            <li><a class="waves-effect"  href="profile.html" id="menu_profile">Perfil</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="history.html">Historial</a></li>
+            <li><a class="waves-effect" href="history.html" id="menu_history">Historial</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="setings.html">Configuracion</a></li>
+            <li><a class="waves-effect" href="setings.html" id="menu_config">Configuracion</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="faq.html">Preguntas Frecuentes</a></li>
+            <li><a class="waves-effect" href="faq.html" id="menu_faq">Preguntas Frecuentes</a></li>
             <li><div class="divider"></div></li> 
             <!--/ Menu--> 
             <li><div class="spacer"></div></li>
@@ -61,16 +61,16 @@
               <div class="row">
                 <div class="input-field col s12 input-container_hrs"> 
                     <input id="Target_Fast" type="number" min="12" class="validate" > 
-                    <label for="Target_Fast">Meta de ayuno diario</label>
+                    <label for="Target_Fast" id="Target_Fast_Label">Meta de ayuno diario</label>
                 </div>
                 <div class="input-field col s12">
                     <select id="Language">
-                        <option value="" disabled selected>Seleccione un Idioma</option>
+                        <option value="" disabled>Seleccione un Idioma</option>
                         <option value="1">Español</option>
-                        <option value="2">Ingles</option> 
-                        <option value="3">Frances</option> 
+                        <option value="2">English</option> 
+                        <!--option value="3">Frances</option--> 
                     </select>
-                    <label>Idioma</label>
+                    <label id="label_language">Idioma</label>
                 </div>   
                 </div>   
                 <a class="btn waves-effect waves-light blue lighten-2" id="save" name="save">Guardar Cambios</a> <br>
@@ -83,6 +83,22 @@
     <script type="text/javascript " src="js/main.js"></script>   
     <script type="text/javascript " src="js/materialize.min.js"></script>  
     <script type="text/javascript " src="js/config.js"></script>   
+
+    <script type="text/javascript">
+     
+switch(_user.Language)
+{
+    case "1":
+        $("#save").html("Guardar Cambios")  
+        break;
+    case "2":   
+        $("#save").html("Save")  
+        break;
+    default:
+        $("#save").html("Guardar cambios")  
+        break;
+}
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ var fastint;
 var time;
 var _user;
 var reached;
+var control
 
 $(document).ready(function() 
 {
@@ -40,13 +41,39 @@ $(document).ready(function()
             }, 1000);
             fastint;
             isRunning = true;
-            $('#control').text("Detener")
+            switch(_user.Language)
+                {
+                    case "1":
+                        control ="Detener"
+                        break;
+                    case "2":       
+                        control ="Stop" 
+                        break;
+                    default:
+                        control ="Detener"
+                        break;
+                }
+            $('#control').text(control)
             $('#control').addClass('pause_fast')
             $('#restart_section').html('<div id="restart"><img src="img/restart.png" width="100%"></div>')
-            $('#edit').html('<img src="img/edit.png" width="15%" onClick="wth()">')
-        } else {
+            $('#edit').html('<img src="img/edit.png" width="15%" onClick="wth()"><br>')
+        }
+        else 
+        {
             $('#edit').html('<br>')
-            $('#control').text("Iniciar")
+            switch(_user.Language)
+                {
+                    case "1":
+                        control ="Iniciar"
+                        break;
+                    case "2":       
+                        control ="Start" 
+                        break;
+                    default:
+                        control ="Iniciar"
+                        break;
+                }
+            $('#control').text(control)
             $('#control').addClass('start_fast')
             $("#h").html("0")
             $("#m").html("00")
@@ -131,7 +158,20 @@ $(document).ready(function()
             $('#cont').attr('data-pct', 0);
             $('#control').removeClass('pause_fast')
             $('#control').addClass('start_fast')
-            e.text("Iniciar");
+
+            switch(_user.Language)
+                {
+                    case "1":
+                        control ="Iniciar"
+                        break;
+                    case "2":       
+                        control ="Start" 
+                        break;
+                    default:
+                        control ="Iniciar"
+                        break;
+                }
+            e.text(control);
             $('#edit').html('<br>')
             isRunning = false;
             $('#restart_section').html('') 
@@ -187,7 +227,19 @@ $(document).ready(function()
                 $('#cont').attr('data-pct', 0);
                 $('#control').removeClass('pause_fast')
                 $('#control').addClass('start_fast')
-                e.text("Iniciar");
+                switch(_user.Language)
+                    {
+                        case "1":
+                            control ="Iniciar"
+                            break;
+                        case "2":       
+                            control ="Start" 
+                            break;
+                        default:
+                            control ="Iniciar"
+                            break;
+                    }
+                e.text(control);
                 $('#edit').html('<br>')
                 $('#restart_section').html('') 
             }) 
@@ -212,7 +264,20 @@ $(document).ready(function()
             $('#cont').attr('data-pct', 0);
             $('#control').removeClass('pause_fast')
             $('#control').addClass('start_fast')
-            e.text("Iniciar");
+
+            switch(_user.Language)
+                {
+                    case "1":
+                        control ="Iniciar"
+                        break;
+                    case "2":       
+                        control ="Start" 
+                        break;
+                    default:
+                        control ="Iniciar"
+                        break;
+                }
+            e.text(control);
             $('#restart_section').html('')
             $('#edit').html('<br>')
             isRunning = false;
@@ -228,7 +293,20 @@ $(document).ready(function()
         isRunning = true;
         $('#control').removeClass('start_fast')
         $('#control').addClass('pause_fast')
-        e.text("Detener");
+
+        switch(_user.Language)
+        {
+            case "1":
+                control ="Detener"
+                break;
+            case "2":       
+                control ="Stop" 
+                break;
+            default:
+                control ="Detener"
+                break;
+        }
+        e.text(control);
         var cc = new Date();
         var a = cc.getTime();
         ms = Math.abs(a - cc);
@@ -237,7 +315,7 @@ $(document).ready(function()
         time = cc
         localStorage.setItem("Fast_Start", cc);
         $('#restart_section').html('<div id="restart"><img src="img/restart.png" width="100%"></div>')
-        $('#edit').html('<img src="img/edit.png" width="15%">')
+        $('#edit').html('<img src="img/edit.png" width="15%" onClick="wth()"><br>')
         fastint = window.setInterval(function() {
             updateDate(cc)
         }, 1000);
@@ -299,19 +377,53 @@ $(document).ready(function()
     //--- Parse the date to show
     function getMonthAndDate(d)
     {
+
         var month = new Array();
-        month[0] = "Enero";
-        month[1] = "Febrero";
-        month[2] = "Marzo";
-        month[3] = "Abril";
-        month[4] = "Mayo";
-        month[5] = "Junio";
-        month[6] = "Julio";
-        month[7] = "Agosto";
-        month[8] = "Septiembre";
-        month[9] = "Octubre";
-        month[10] = "Noviembre";
-        month[11] = "Diciembre";
+        switch(_user.Language)
+        {
+            case "1":
+            month[0] = "Enero";
+            month[1] = "Febrero";
+            month[2] = "Marzo";
+            month[3] = "Abril";
+            month[4] = "Mayo";
+            month[5] = "Junio";
+            month[6] = "Julio";
+            month[7] = "Agosto";
+            month[8] = "Septiembre";
+            month[9] = "Octubre";
+            month[10] = "Noviembre";
+            month[11] = "Diciembre";
+                break;
+            case "2":       
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
+                break;
+            default:
+            month[0] = "Enero";
+            month[1] = "Febrero";
+            month[2] = "Marzo";
+            month[3] = "Abril";
+            month[4] = "Mayo";
+            month[5] = "Junio";
+            month[6] = "Julio";
+            month[7] = "Agosto";
+            month[8] = "Septiembre";
+            month[9] = "Octubre";
+            month[10] = "Noviembre";
+            month[11] = "Diciembre";
+                break;
+        }
 
         var showStartdate = new Date(d);
         var showEndDate = new Date(showStartdate.valueOf() + (parseInt(_user.Target_Fast) * 3600000)) 

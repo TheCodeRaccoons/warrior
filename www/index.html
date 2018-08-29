@@ -33,18 +33,18 @@
                     </div>
                 </li>
             <!--/ Username and image-->
-            <!--Menu-->
-                <li><a class="waves-effect" href="index.html">Inicio</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="waves-effect"  href="profile.html">Perfil</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="waves-effect" href="history.html">Historial</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="waves-effect" href="setings.html">Configuracion</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="waves-effect" href="faq.html">Preguntas Frecuentes</a></li>
-                <li><div class="divider"></div></li> 
-                <!--/ Menu--> 
+        <!--Menu-->
+            <li><a class="waves-effect" href="index.html" id="menu_start">Inicio</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect"  href="profile.html" id="menu_profile">Perfil</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="history.html" id="menu_history">Historial</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="setings.html" id="menu_config">Configuracion</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="faq.html" id="menu_faq">Preguntas Frecuentes</a></li>
+            <li><div class="divider"></div></li> 
+            <!--/ Menu--> 
                 <li><div class="spacer"></div></li>
                 <!--Verison Controll--> 
                 <li style="position: fixed;bottom: 48px; width:100%"><a>Code Raccoons</a></li> 
@@ -64,15 +64,15 @@
                 <div class="col s4 center " id="s">0</div>
             </div>
             <div class="row" style="margin-bottom:5px !important">
-                <div class="col s4 center ">Horas</div>
-                <div class="col s4 center ">Minutos</div>
-                <div class="col s4 center ">Segundos</div>
+                <div class="col s4 center " id="timer_hours">Horas</div>
+                <div class="col s4 center " id="timer_minutes">Minutos</div>
+                <div class="col s4 center " id="timer_seconds">Segundos</div>
             </div>
         </div>
         <div class="col s12 "> 
             <!--Timer-->
             <div id="cont" data-pct="0">
-                <a id="control" class="start_fast" role="button" style="color:#E8F3FB"></a>  
+                <a id="control" class="start_fast centered" role="button" style="color:#E8F3FB"></a>  
                 <svg id="svg" width="220" height="220"  version="1.1" xmlns="http://www.w3.org/2000/svg"> 
                     <circle r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle>
                     <circle id="bar" r="80" cx="100" cy="110" fill="transparent" stroke-dasharray="502" stroke-dashoffset="0"></circle> 
@@ -84,14 +84,14 @@
     <div id="main_content" class="row">
         <div class="col s12 ">
             <div class="row text_glow" style="margin-bottom:5px !important">
-                <div class="col s5 center"><div id="edit"></div>
+                <div class="col s5 center" id="index_start"><div id="edit"></div>
                     Inicio:
                     <span id="inicio"></span>
                 </div> 
                 <div class="col s2 center" id="restart_section">
                 </div>
-                <div class="col s5 center">
-                    <br>Termina:
+                <div class="col s5 center" id="index_finish">
+                    Termina:
                     <span id="fin"></span>
                 </div>
             </div>
