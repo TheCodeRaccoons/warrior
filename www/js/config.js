@@ -2,9 +2,21 @@
 $(document).ready(function() 
 {
     _user = JSON.parse(localStorage.getItem('User')) 
-    console.log(_user)
-    console.log(_user.Language)
-    
+    switch(_user.Language)
+    {
+        case "1":
+            $("#setings-saved-info").html("Cambios realizados con éxito")  
+            $("#accept").html("Aceptar")  
+            break;
+        case "2":   
+            $("#setings-saved-info").html("Changes realized successfully")  
+            $("#accept").html("Continue")  
+            break;
+        default:
+            $("#setings-saved-info").html("Cambios realizados con éxito")  
+            $("#accept").html("Aceptar")  
+            break;
+    }
     $("#Target_Fast").val(_user.Target_Fast)
     $(".name").html(_user.User_Name) 
     $("#Language").find("option").each(function() {
@@ -27,8 +39,13 @@ $(document).ready(function()
             _user.Language = 1;
         }
         localStorage.setItem("User",  JSON.stringify(_user))
-        alert("Cambios Realizados con exito")
-    })
+        
+        $('#changes-saved').modal('open');
+        $('#accept').one('click',function() 
+        {
+            window.location.href = 'setings.html';
+        });
+    }) 
 });
 
 

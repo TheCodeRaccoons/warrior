@@ -15,13 +15,13 @@ $(document).ready(function()
          $(".name").html(_user.User_Name) 
         //--- If there is a user check for a Fast Goal and the Disclaimer Accepted
         if(!_user.Target_Fast){
-            $("#agregar_meta").modal('open')
+            $("#agregar_meta").modal('open',{dismissible: false,})
             $('#continuar').click(function() {
                 window.location.href = 'setings.html';
             })
         }
         if(!_user.accept_disclaimer){ 
-            $("#aceptaDisclaimer_modal").modal('open') 
+            $("#aceptaDisclaimer_modal").modal('open',{dismissible: false,}) 
             $('#AceptaDisclaimer').click(function() {
                 _user.accept_disclaimer = true;
                 localStorage.setItem("User",  JSON.stringify(_user))
@@ -115,8 +115,8 @@ $(document).ready(function()
     if (!_user.hasOwnProperty("User_Last_Weight_Date")) 
     {  
         
-        $('#ingresar_meta').modal('open');
-        $('#ingresar_peso').one('click',function() {
+        $('#ingresar_meta').modal('open',{dismissible: false,});
+        $('#modal-b-set-weight').one('click',function() {
             window.location.href = 'profile.html';
         });
     }
@@ -136,7 +136,9 @@ $(document).ready(function()
         $("#minutos_ayuno").html($("#m").text() + "min")
         $("#racha_ayuno").html(_user.Fast_Hit) 
         $("#prox_ayuno").html("0")
-        $('#completado').modal('open');
+        $('#completado').modal("open",{dismissible: false,}); 
+         
+
         $('#terminar').one('click',function() { 
             clearInterval(fastint);
             reached = true
@@ -179,8 +181,8 @@ $(document).ready(function()
             if(GetDifDays(_user.User_Last_Weight_Date) > 14)
             {
                 $('#daysSinceUpdate').html(GetDifDays(_user.User_Last_Weight_Date));
-                $('#actualizar_meta').modal('open');
-                $('#actualizar_peso').one('click',function() {
+                $('#actualizar_meta').modal('open',{dismissible: false,});
+                $('#modal-b-update-weight').one('click',function() {
                     window.location.href = 'profile.html';
                 });
                 
@@ -205,7 +207,7 @@ $(document).ready(function()
         $("#horas_ayuno2").html($("#h").text() + "hrs")
         $("#minutos_ayuno2").html($("#m").text() + "min")
         $("#racha_ayuno2").html(_user.Fast_Hit)
-        $('#no_completado').modal('open'); 
+        $('#no_completado').modal('open',{dismissible: false,}); 
             $('#terminar_no_completado').one('click',function() { 
                 clearInterval(fastint);
                 reached = false
@@ -253,7 +255,7 @@ $(document).ready(function()
     {
         $("#horas_ayuno3").html($("#h").text() + "hrs")
         $("#racha_ayuno3").html(_user.Fast_Hit)
-        $('#ayuno_invalido').modal('open'); 
+        $('#ayuno_invalido').modal('open',{dismissible: false,}); 
         $('#terminar_invalido').one('click',function() {
             clearInterval(fastint);
             reached = false
@@ -446,7 +448,7 @@ $(document).ready(function()
     //--- Restart Button
     $(document).on('click','#restart',function(){
         $("#fasted_hours").html($("#h").text())
-        $('#reiniciarAyuno').modal('open'); 
+        $('#reiniciarAyuno').modal('open',{dismissible: false,}); 
         $('#reiniciar').one('click',function() { 
         $("#h").html("0")
         $("#m").html("00")
