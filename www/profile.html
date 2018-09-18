@@ -44,7 +44,7 @@
             <li><div class="spacer"></div></li>
             <!--Verison Controll--> 
             <li style="position: fixed;bottom: 48px; width:100%"><a>Code Raccoons</a></li> 
-            <li style="position: fixed;bottom: 0; left:30px ; width:100%; color: #E8F3FB !important;" ><ahref="#!">Versión <div class="right" id="version">Beta V1.0.0</div></a></li>
+            <li style="position: fixed;bottom: 0; left:30px ; width:100%; color: #E8F3FB !important;" >Versión <div class="right" id="version">Beta V1.0.0</div></li>
             <!--/ Verison <Controll--> 
         </ul>     
         <div id="menu_bar" class="Menu_Bar center ">
@@ -63,18 +63,10 @@
     </div>
 
     <div class="row blue_bar center-align"> 
-            <div class="col s3">
-                Racha
-            </div>
-            <div class="col s3">
-                Peso
-            </div>
-            <div class="col s3">
-                Altura
-            </div>
-            <div class="col s3">
-                IMC
-            </div>  
+            <div class="col s3" id="label-streak">Racha</div>
+            <div class="col s3" id="label-weight">Peso</div>
+            <div class="col s3" id="label-height">Altura</div>
+            <div class="col s3" id="label-imc">IMC</div>  
             <div class="col s3" id="hit">
                 0
             </div>
@@ -95,7 +87,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <input id="User_Name" type="text" data-length="14" maxlength="14" class="validate">
-                  <label for="User_Name">Nombre</label>
+                  <label id="user_name_label" for="User_Name">Nombre</label>
                 </div>
                 <div class="input-field col s12">
                     <select id="User_gender">
@@ -103,19 +95,19 @@
                         <option value="1">Hombre</option>
                         <option value="2">Mujer</option> 
                     </select>
-                    <label>Genero</label>
+                    <label id="user_gender_label">Genero</label>
                 </div> 
                 <div class="input-field col s12">
                   <input id="User_Age" type="number" class="validate">
-                  <label for="User_Age">Edad</label>
+                  <label id="user_age_label" for="User_Age">Edad</label>
                 </div> 
                 <div class="input-field col s12 input-container_kg">
                   <input id="User_Weigth" type="number" class="validate">
-                  <label for="User_Weigth">Peso</label>
+                  <label id="user_weight_label" for="User_Weigth">Peso</label>
                 </div> 
                 <div class="input-field col s12 input-container_cm">
                   <input id="User_height" type="number" class="validate">
-                  <label for="User_height">Altura</label>
+                  <label id="user_height_label" for="User_height">Altura</label>
                 </div> 
                 <a class="btn waves-effect waves-light blue lighten-2" id="update" name="update">Actualizar</a> <br>
             </form>
@@ -134,7 +126,18 @@
         </div>
     </div>
 
+    <!--  Modal Termino ayuno no completado -->
+    <div id="update_data" class="modal"> 
+            <div class="modal-content center-align">
+                <h5 id="modal-c-update">Para comenzar a usar el app solo tienes que crear tu perfil, Por favor llena el formulario</h5>
+            </div>
+            <div class="modal-footer center-align">
+                <a href="#" id="modal-b-update" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+            </div>
+        </div>
+
     <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript " src="js/profile_en-es.js"></script>
     <script type="text/javascript " src="js/main.js "></script>
     <script type="text/javascript " src="js/update-data.js"></script>   
     <script type="text/javascript " src="js/materialize.min.js"></script>   

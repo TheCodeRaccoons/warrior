@@ -122,11 +122,11 @@
 							updateDate(cc)
 						}, 1000);
 						fastint;
-						SendMessage("Se actualizo la fecha de inicio de su ayuno.", "Actualizacion Realizada");
+						SendMessage(msg, title);
 					}
 					else
 					{
-						SendMessage("Por favor, seleccione una fecha / hora anterior a la actual.", "Fecha invalida");
+						SendMessage(msg_err, title_err);
 					}
 		    	_this.curIndexArr = _this.getIndexArr();
 		    	_this.curValue = _this.getCurValue();
@@ -216,8 +216,8 @@
 
 		renderWheels: function(wheelsData, cancelBtnText, ensureBtnText){
 			var _this = this;
-			var cancelText = cancelBtnText ? cancelBtnText : 'Cancelar';
-			var ensureText = ensureBtnText ? ensureBtnText : 'Aceptar';
+			var cancelText = cancelBtnText ? cancelBtnText : date_select_cancel;
+			var ensureText = ensureBtnText ? ensureBtnText : date_select_accept;
 			_this.mobileSelect = document.createElement("div");
 			_this.mobileSelect.className = "mobileSelect";
 			_this.mobileSelect.innerHTML =

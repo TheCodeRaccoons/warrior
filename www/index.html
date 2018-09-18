@@ -48,7 +48,7 @@
                 <li><div class="spacer"></div></li>
                 <!--Verison Controll--> 
                 <li style="position: fixed;bottom: 48px; width:100%"><a>Code Raccoons</a></li> 
-                <li style="position: fixed;bottom: 0; left:30px ; width:100%; color: #E8F3FB !important;" ><ahref="#!">Versión <div class="right" id="version">Beta V1.0.0</div></a></li>
+                <li style="position: fixed;bottom: 0; left:30px ; width:100%; color: #E8F3FB !important;" >Versión <div class="right" id="version">Beta V1.0.0</div></li>
                 <!--/ Verison <Controll--> 
         </ul>   
     <!--Main Menu-->
@@ -103,100 +103,71 @@
     <!-- Modal Termino ayuno completado -->
     <div id="completado" class="modal modal-fixed-footer text_blk">
         <div class="modal-content center-align">
-            <h3>Buen trabajo!</h3>
-            <h5><span id="percent">360</span> % Completado</h5>
-            <br>
-            De <span id="inicio_ayuno">x:xx xx</span> a <span id="fin_ayuno">x:xx xx</span>
-            <br>
-            <br>
-            Con un total de
-            <br>
-            <h4><span id="horas_ayuno">x hrs</span> <span id="minutos_ayuno">x min</span></h4>
-            <br>
-            <p>Sigue con tu racha de <span id="racha_ayuno"></span> Dias!<br>
-            Estas a <span id="prox_ayuno"></span> de tu proximo ayuno! 
-            </p>    
+            <h4 id="modal-t-fast-completed"></h4>
+            <div id="modal-c-fast-completed"></div>
         </div>
         <div class="modal-footer center-align">
-            <a id="terminar" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
-            <a id="cancelar" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+            <a id="modal-b-fast-completed-finish" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
+            <a id="modal-b-fast-completed-cancel" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
         </div>
     </div>
 
     <!--  Modal Termino ayuno no completado -->
     <div id="no_completado" class="modal modal-fixed-footer text_blk">
         <div class="modal-content center-align">
-            <h2>Espera!</h2>
-            <h5>Tienes <span id="percent2"></span>% Completado</h5>
-            <br>
-            De <span id="inicio_ayuno2">x:xx xx</span> a <span id="fin_ayuno2">x:xx xx</span>
-            <br>
-            Con un total de
-            <br>
-            <h4><span id="horas_ayuno2">x hrs</span> <span id="minutos_ayuno2">x min</span></h4>
-            <br>
-            <p>Si terminas tu ayuno ahora perderas tu racha de 
-                <b><span id="racha_ayuno2"></span></b> Dias!<br> 
-            </p>    
-            Seguro quieres terminar?
+            <h2 id="modal-t-not-completed"></h2>
+            <p id="modal-c-not-completed"></p>
         </div>
         <div class="modal-footer center-align">
-            <a id="terminar_no_completado" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
-            <a id="cancelar_no_completado" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+            <a id="modal-b-not-completed-finish" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+            <a id="modal-b-not-completed-cancel" class="modal-action modal-close waves-effect waves-red btn-flat"></a>
         </div>
     </div>
     
     <!--  Modal Termino ayuno no completado -->
     <div id="ayuno_invalido" class="modal modal-fixed-footer text_blk">
         <div class="modal-content center-align">
-            <h2>Espera!</h2>
-            <h5>Un ayuno de <span id="horas_ayuno3"></span> es demaciado corto</h5>
-            <p> Si decides terminar ahora, tu ayuno no se guardara, No obstante tendras un periodo de 
-                6 horas antes de tu proximo ayuno para no perder tu racha de <b><span id="racha_ayuno3"></span></b> Dias.<br> 
-            </p>    
-            Seguro quieres terminar?
+            <h2 id="modal-t-invalid-fast"></h2> 
+            <p id="modal-c-invalid-fast"></p>    
         </div>
         <div class="modal-footer center-align">
-        <a id="terminar_invalido" class="modal-action modal-close waves-effect waves-green btn-flat">Terminar</a>
-        <a id="cancelar_invalido" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+        <a id="modal-b-invalid-fast-ok" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+        <a id="modal-b-invalid-fast-cancel" class="modal-action modal-close waves-effect waves-red btn-flat"></a>
         </div>
     </div>
     
     <!--  Modal Termino ayuno no completado -->
     <div id="agregar_meta" class="modal modal-fixed-footer text_blk">
         <div class="modal-content center-align">
-            <h2>Woops!</h2>
-            <h5>Parece ser que aun no has establecido una meta de ayuno</h5>
-            <p> Presiona continuar para establecerla</p>
+            <h2 id="modal-t-add_goal"></h2>  
+            <p id="modal-c-add_goal"></p>
         </div>
         <div class="modal-footer center-align">
-            <a id="continuar" class="modal-action modal-close waves-effect waves-green btn-flat">continuar</a>
+            <a id="modal-b-add_goal" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
         </div>
     </div>
 
     <!--  Modal Med. disclaimer -->
     <div id="aceptaDisclaimer_modal" class="modal modal-fixed-footer text_blk">
         <div class="modal-content center-align"> 
-            <h5>Aviso Medico</h5><br>
-                Debes Consultar con tu profesional Medico antes de comenzar cualquier programa de ayuno.
-                Esta aplicacion y la informacion en ella, incluyendo texto, imagenes, graficos y todo tipo de contenido son solo con 
-                proposito informativo y educacional y no se debe considerar como reemplazo a la opinion de un medico.
+            <h5 id="modal-t-medical_disclaimer"></h5><br>
+            <p id="modal-c-medical_disclaimer"></p>
         </div>
         <div class="modal-footer center-align">
-            <a id="AceptaDisclaimer" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            <a id="modal-b-medical_disclaimer" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
         </div>
     </div> 
+
     <!--  Modal Reiniciar -->
     <div id="reiniciarAyuno" class="modal modal-fixed-footer text_blk">
-        <div class="modal-content center-align">
-            <h4 class="center">Deseas Reiniciar tu Ayuno?</h4>
-            <p> Si decides reiniciar ahora perderas tu total de <b><span id="fasted_hours"></span></b> hrs. 
+        <div class="modal-content center-align"> 
+            <h4 id="modal-t-restart" class="center"></h4>
+            <p id="modal-c-restart"> 
             </p>    
-            Seguro quieres reiniciar?
         </div>
         <div class="modal-footer center-align">
-          <a id="reiniciar" class="modal-action modal-close waves-effect waves-green btn-flat">Reiniciar</a>
-          <a id="cancelar_reinicio" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+          <a id="modal-b-restart_ok" class="modal-action modal-close waves-effect waves-green btn-flat">Reiniciar</a>
+          <a id="modal-b-restart_cancel" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
         </div>
       </div>
   

@@ -113,7 +113,12 @@ $(document).ready(function(){
                                             
             localStorage.setItem("User",  JSON.stringify(_user))
             console.log(_user);
-            alert("Cambios Realizados con exito")
+            
+            $("#update_data").modal('open',{dismissible: false});;
+            $("#modal-b-update" ).click(function() 
+            {
+                window.location.href = 'profile.html';
+            })
         }
     })
 })

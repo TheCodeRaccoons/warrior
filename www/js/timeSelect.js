@@ -1,8 +1,4 @@
 
-var weekdayArr=['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'];
-
- 
-
 var hourArr12=['01 :','02 :','03 :','04 :','05 :','06 :','07 :','08 :','09 :','10 :','11 :','12 :'];
 var minArr = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29',
               '30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59'];
@@ -12,13 +8,11 @@ var amPmArr=['AM','PM'];
 var dateArr = GetDateArr(getYesterdaysDate(),getNextDate())
 var printableDateArr = GetDateArrToPrint(getYesterdaysDate(),getNextDate())
  
-function wth(){
-MS
-}
+function wth(){MS}
 
 var MS = new MobileSelect({
     trigger: '#edit',
-    title: 'Hora de inicio',
+    title: date_select_title,
     wheels: [
                 {data: printableDateArr },
                 {data: hourArr12},
@@ -80,20 +74,5 @@ function GetDateArrToPrint(start, end)
     }
     console.log(dES);
     return dES;
-}
-
-function getDayOfWeek(d)
-{
-    var weekday = []
-    weekday[0] = "Domingo";
-    weekday[1] = "Lunes";
-    weekday[2] = "Martes";
-    weekday[3] = "Miercoles";
-    weekday[4] = "Jueves";
-    weekday[5] = "Viernes";
-    weekday[6] = "Sabado";
-
-    var n = weekday[d];
-    return n;
 }
  

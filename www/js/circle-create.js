@@ -7,22 +7,21 @@ var reached;
 var control
 
 $(document).ready(function() 
-{
-    _user = JSON.parse(localStorage.getItem('User')) 
-    console.log(_user)
+{ 
     if(_user)
     {
          $(".name").html(_user.User_Name) 
         //--- If there is a user check for a Fast Goal and the Disclaimer Accepted
         if(!_user.Target_Fast){
             $("#agregar_meta").modal('open',{dismissible: false,})
-            $('#continuar').click(function() {
+            $('#modal-b-add_goal').click(function() {
                 window.location.href = 'setings.html';
             })
         }
+
         if(!_user.accept_disclaimer){ 
             $("#aceptaDisclaimer_modal").modal('open',{dismissible: false,}) 
-            $('#AceptaDisclaimer').click(function() {
+            $('#modal-b-medical_disclaimer').click(function() {
                 _user.accept_disclaimer = true;
                 localStorage.setItem("User",  JSON.stringify(_user))
             })
@@ -129,6 +128,7 @@ $(document).ready(function()
     function FastCompleted(e)
     { 
         var moment = new Date()  
+
         $("#percent").html(parseInt(cont.getAttribute('data-pct')))
         $("#inicio_ayuno").html(time.toLocaleTimeString())
         $("#fin_ayuno").html(moment.toLocaleTimeString())
@@ -137,9 +137,8 @@ $(document).ready(function()
         $("#racha_ayuno").html(_user.Fast_Hit) 
         $("#prox_ayuno").html("0")
         $('#completado').modal("open",{dismissible: false,}); 
-         
 
-        $('#terminar').one('click',function() { 
+        $('#modal-b-fast-completed-finish').one('click',function() { 
             clearInterval(fastint);
             reached = true
             _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
@@ -192,7 +191,7 @@ $(document).ready(function()
                 console.log(GetDifDays(_user.User_Last_Weight_Date))
             }
         })
-        $('#cancelar').click(function() {
+        $('#modal-b-fast-completed-cancel').click(function() {
             $('#completado').modal('close');
         })
     }
@@ -201,14 +200,15 @@ $(document).ready(function()
     function FastNotCompleted(e)
     {
         var moment = new Date()  
+
         $("#percent2").html(parseInt(cont.getAttribute('data-pct')))
         $("#inicio_ayuno2").html(time.toLocaleTimeString())
         $("#fin_ayuno2").html(moment.toLocaleTimeString())
         $("#horas_ayuno2").html($("#h").text() + "hrs")
         $("#minutos_ayuno2").html($("#m").text() + "min")
         $("#racha_ayuno2").html(_user.Fast_Hit)
-        $('#no_completado').modal('open',{dismissible: false}); 
-            $('#terminar_no_completado').one('click',function() { 
+        $("#no_completado").modal('open',{dismissible: false}); 
+            $('#modal-b-not-completed-finish').one('click',function() { 
                 clearInterval(fastint);
                 reached = false
                 _user.Total_Fast_Time = _user.Total_Fast_Time + parseInt($("#h").html())
@@ -229,6 +229,7 @@ $(document).ready(function()
                 $('#cont').attr('data-pct', 0);
                 $('#control').removeClass('pause_fast')
                 $('#control').addClass('start_fast')
+    
                 switch(_user.Language)
                     {
                         case "1":
@@ -243,9 +244,11 @@ $(document).ready(function()
                     }
                 e.text(control);
                 $('#edit').html('<br>')
+                isRunning = false;
                 $('#restart_section').html('') 
+                
             }) 
-            $('#cancelar_no_completado').click(function() {
+            $('#modal-b-not-completed-cancel').click(function() {
                 $('#no_completado').modal('close');
             })
     }
@@ -256,7 +259,7 @@ $(document).ready(function()
         $("#horas_ayuno3").html($("#h").text() + "hrs")
         $("#racha_ayuno3").html(_user.Fast_Hit)
         $('#ayuno_invalido').modal('open',{dismissible: false}); 
-        $('#terminar_invalido').one('click',function() {
+        $('#modal-b-invalid-fast-ok').one('click',function() {
             clearInterval(fastint);
             reached = false
             localStorage.removeItem('Fast_Start');
@@ -284,7 +287,7 @@ $(document).ready(function()
             $('#edit').html('<br>')
             isRunning = false;
         })
-        $('#cancelar_invalido').click(function() {
+        $('#modal-b-invalid-fast-cancel').click(function() {
             $('#ayuno_invalido').modal('close');
         })
     }
@@ -376,66 +379,6 @@ $(document).ready(function()
         return $("#h").html(hours), $("#m").html(formattedMinutes), $("#s").html(seconds)
     }
 
-    //--- Parse the date to show
-    function getMonthAndDate(d)
-    {
-
-        var month = new Array();
-        switch(_user.Language)
-        {
-            case "1":
-            month[0] = "Enero";
-            month[1] = "Febrero";
-            month[2] = "Marzo";
-            month[3] = "Abril";
-            month[4] = "Mayo";
-            month[5] = "Junio";
-            month[6] = "Julio";
-            month[7] = "Agosto";
-            month[8] = "Septiembre";
-            month[9] = "Octubre";
-            month[10] = "Noviembre";
-            month[11] = "Diciembre";
-                break;
-            case "2":       
-            month[0] = "January";
-            month[1] = "February";
-            month[2] = "March";
-            month[3] = "April";
-            month[4] = "May";
-            month[5] = "June";
-            month[6] = "July";
-            month[7] = "August";
-            month[8] = "September";
-            month[9] = "October";
-            month[10] = "November";
-            month[11] = "December";
-                break;
-            default:
-            month[0] = "Enero";
-            month[1] = "Febrero";
-            month[2] = "Marzo";
-            month[3] = "Abril";
-            month[4] = "Mayo";
-            month[5] = "Junio";
-            month[6] = "Julio";
-            month[7] = "Agosto";
-            month[8] = "Septiembre";
-            month[9] = "Octubre";
-            month[10] = "Noviembre";
-            month[11] = "Diciembre";
-                break;
-        }
-
-        var showStartdate = new Date(d);
-        var showEndDate = new Date(showStartdate.valueOf() + (parseInt(_user.Target_Fast) * 3600000)) 
-        var n = month[showStartdate.getMonth()];
-        var nn = month[showEndDate.getMonth()];
-
-        $('#inicio').html(n +" "+ showStartdate.getDate() + "<br>" +showStartdate.toLocaleTimeString())
-        $('#fin').html(nn +" "+ showEndDate.getDate() + "<br>" +showEndDate.toLocaleTimeString())
-    }
-
     function GetDifDays(date)
     {
         var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
@@ -449,7 +392,7 @@ $(document).ready(function()
     $(document).on('click','#restart',function(){
         $("#fasted_hours").html($("#h").text())
         $('#reiniciarAyuno').modal('open',{dismissible: false}); 
-        $('#reiniciar').one('click',function() { 
+        $('#modal_b_restart_ok').one('click',function() { 
         $("#h").html("0")
         $("#m").html("00")
         $("#s").html("00")
@@ -469,7 +412,7 @@ $(document).ready(function()
         }, 1000);
         fastint;
         })
-        $('#cancelar_reinicio').click(function() {
+        $('#modal-b-restart_cancel').click(function() {
             $('#reiniciarAyuno').modal('close');
     })
 });
