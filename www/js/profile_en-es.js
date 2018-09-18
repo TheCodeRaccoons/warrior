@@ -14,8 +14,11 @@ switch(_user.Language)
         $("#user_weight_label").html("Peso") 
         $("#user_height_label").html("Altura") 
         $("#update").html("Actualizar")  
-        $('#modal-c-update').html("Cambios Realizados con exito");
-        $('#modal-b-update').html("Aceptar");
+        $('#modal-c-update').html("Cambios Realizados con exito")
+        $('#modal-b-update').html("Aceptar")
+        $('#modal-t-welcome').html("Bienvenido!")
+        $('#modal-c-welcome').html("Para comenzar a usar el app solo tienes que crear tu perfil, Por favor llena el formulario")
+        $('#modal-b-welcome').html("Aceptar")
         break;
     case "2":     
         $("#label-imc").html("IMC") 
@@ -30,6 +33,9 @@ switch(_user.Language)
         $("#update").html("Update") 
         $('#modal-c-update').html("changes applied successfully");
         $('#modal-b-update').html("Continue");
+        $('#modal-t-welcome').html("Welcome!")
+        $('#modal-c-welcome').html("To start using the app you need a profile, please fill the following form to get started")
+        $('#modal-b-welcome').html("Continue")
 
         break;
     default: 
@@ -45,5 +51,8 @@ switch(_user.Language)
         $("#update").html("Actualizar") 
         $('#modal-c-update').html("Cambios Realizados con exito");
         $('#modal-b-update').html("Aceptar");
+        $('#modal-t-welcome').html("Bienvenido!")
+        $('#modal-c-welcome').html("Para comenzar a usar el app solo tienes que crear tu perfil, Por favor llena el formulario")
+        $('#modal-b-welcome').html("Aceptar")
         break;
 }
