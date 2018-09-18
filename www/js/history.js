@@ -72,7 +72,7 @@ $(document).ready(function() {
         }
         else{
             //send alert no data 
-            $('#noHistoryFound').modal('open');
+            $('#noHistoryFound').modal('open',{dismissible: false});;
             $("#avg").html(0 + " hrs")
             $("#total").html(0 + " hrs") 
         }

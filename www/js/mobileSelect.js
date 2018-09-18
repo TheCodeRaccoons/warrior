@@ -739,5 +739,5 @@ function SendMessage(message, title)
 {
 	$('#title').html(title)
 	$('#message').html(message)
-	$("#sendMessageModal").modal('open')
+	$("#sendMessageModal").modal('open',{dismissible: false});
 }

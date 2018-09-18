@@ -40,7 +40,7 @@ $(document).ready(function()
         }
         localStorage.setItem("User",  JSON.stringify(_user))
         
-        $('#changes-saved').modal('open');
+        $('#changes-saved').modal('open',{dismissible: false});;
         $('#accept').one('click',function() 
         {
             window.location.href = 'setings.html';

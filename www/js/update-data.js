@@ -27,7 +27,7 @@ $(document).ready(function(){
         $("#imc").html(_user.IMC)
     //if the localstorage object does not exist... well, create one...
     }else{
-    $("#bienvenido").modal('open');
+    $("#bienvenido").modal('open',{dismissible: false});;
     $( "#update" ).click(function() {
             var User =
                 {

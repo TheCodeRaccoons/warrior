@@ -115,7 +115,7 @@ $(document).ready(function()
     if (!_user.hasOwnProperty("User_Last_Weight_Date")) 
     {  
         
-        $('#ingresar_meta').modal('open',{dismissible: false,});
+        $('#ingresar_meta').modal('open',{dismissible: false});
         $('#modal-b-set-weight').one('click',function() {
             window.location.href = 'profile.html';
         });
@@ -181,7 +181,7 @@ $(document).ready(function()
             if(GetDifDays(_user.User_Last_Weight_Date) > 14)
             {
                 $('#daysSinceUpdate').html(GetDifDays(_user.User_Last_Weight_Date));
-                $('#actualizar_meta').modal('open',{dismissible: false,});
+                $('#actualizar_meta').modal('open',{dismissible: false});
                 $('#modal-b-update-weight').one('click',function() {
                     window.location.href = 'profile.html';
                 });
@@ -207,7 +207,7 @@ $(document).ready(function()
         $("#horas_ayuno2").html($("#h").text() + "hrs")
         $("#minutos_ayuno2").html($("#m").text() + "min")
         $("#racha_ayuno2").html(_user.Fast_Hit)
-        $('#no_completado').modal('open',{dismissible: false,}); 
+        $('#no_completado').modal('open',{dismissible: false}); 
             $('#terminar_no_completado').one('click',function() { 
                 clearInterval(fastint);
                 reached = false
@@ -255,7 +255,7 @@ $(document).ready(function()
     {
         $("#horas_ayuno3").html($("#h").text() + "hrs")
         $("#racha_ayuno3").html(_user.Fast_Hit)
-        $('#ayuno_invalido').modal('open',{dismissible: false,}); 
+        $('#ayuno_invalido').modal('open',{dismissible: false}); 
         $('#terminar_invalido').one('click',function() {
             clearInterval(fastint);
             reached = false
@@ -448,7 +448,7 @@ $(document).ready(function()
     //--- Restart Button
     $(document).on('click','#restart',function(){
         $("#fasted_hours").html($("#h").text())
-        $('#reiniciarAyuno').modal('open',{dismissible: false,}); 
+        $('#reiniciarAyuno').modal('open',{dismissible: false}); 
         $('#reiniciar').one('click',function() { 
         $("#h").html("0")
         $("#m").html("00")
