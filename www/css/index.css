@@ -48,7 +48,7 @@ ul.side-nav>li>a{
 }
 
 .Menu_Bar{
-    background: #555557 !important;
+    background: #434344 !important;
     color: #FFFFFF;
     position: fixed;
     top: 0;
@@ -57,7 +57,7 @@ ul.side-nav>li>a{
     z-index: 150
 } 
 .Menu_Bar_Iphone{
-    background: #555557 !important;
+    background: #434344 !important;
     color: #FFFFFF;
     padding-top: 20px;
     position: fixed;
@@ -180,6 +180,12 @@ margin-bottom: 0px !important;
     text-shadow: 0 0 0.5em #0883DB;
 }
 
+.text_white
+{
+    color: #FFFFFF;
+    text-shadow: 0 0 0.5em #0883DB;
+}
+
 .profile_area{
     /*background: url('../img/lpbg.png')no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -226,3 +232,13 @@ margin-bottom: 0px !important;
 {
     color: #e8f3e8;
 }
+
+.hr-shadow { 
+    border: none !important;
+    outline: none !important;
+    margin: 1em 1em 0 !important;
+    position: relative !important;
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+  } 
