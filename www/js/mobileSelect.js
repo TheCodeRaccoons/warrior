@@ -105,13 +105,9 @@
 					tempValue = tempValue.replace(" : ", ":");
 
 					tempValue = tempValue.replace("","");
-					
-					console.log(tempValue)
-					cc = new Date(tempValue);
-					console.log(cc)
-					cd = new Date();
-					console.log(cd)
-					console.log(validateDate(cc,cd));
+					 
+					cc = new Date(tempValue); 
+					cd = new Date(); 
 					if(validateDate(cc,cd))
 					{
 						getMonthAndDate(cc);
@@ -740,4 +736,11 @@ function SendMessage(message, title)
 	$('#title').html(title)
 	$('#message').html(message)
 	$("#sendMessageModal").modal('open',{dismissible: false});
+	$("#modal-b-finish-fast").click(function() 
+	{
+		$('#sendMessageModal').modal('close');
+		window.location.href = 'index.html';
+	})
 }
+
+ 
