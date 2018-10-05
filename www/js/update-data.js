@@ -28,7 +28,7 @@ $(document).ready(function(){
     //if the localstorage object does not exist... well, create one...
     }else{
     $("#bienvenido").modal('open',{dismissible: false});;
-    $( "#update" ).click(function() {
+    $("#update").click(function() {
             var User =
                 {
                     "User_Name"         : $('#User_Name').val(), 
@@ -42,22 +42,32 @@ $(document).ready(function(){
                     "Fast_Hit"          : 0,
                     "Target_Fast"       : null,
                     "IMC"               : getIMC($('#User_Weigth').val(), $('#User_height').val()), 
-                    "Language": null,
+                    "Language"          : null,
                     "User_Image"        : null,
-                    "logros":{
-                        "Aspirante" : true,        // 0 -14 hrs (Primer ayuno)
-                        "Aprendis"  : false,        // 14 - 150 hrs total fast
-                        "Escudero"  : false,        // 111 - 350
-                        "Guerrero"  : false,        // 351 - 1k
-                        "Espartano" : false,        // 1k <
-                        "Iniciando": 0,             // Iniciar una racha de > 1 ayuno
-                        "X5": 0,                    // Completar una racha de > 5 ayunos
-                        "X10": 0,                   // Completar una racha de > 10 ayunos
-                        "Sin_Descanso":0,           // Completar un ayuno de 20 dias
-                        "Mas_del_Mes": 0,           // Completar una racha de > 31 ayunos
-                        "Soy_Guerrero": 0           // Completar una racha de > 60 ayunos
-                    },    
-                    "ultimo_logro": null,
+                    "Achievements":
+                    {
+                        "First_Timer"   : false,        // Conseguir el primer ayuno    
+                        "X5"            : 0,            // Completar una racha de > 5 ayunos
+                        "X10"           : 0,            // Completar una racha de > 9 ayunos
+                        "Half_Waypoint" : 0,            // Completar una racha de = 15 ayunos
+                        "Unstoppable"   : 0,            // Completar una racha de > 30 ayunos
+                        "Warrior"       : 0,            // Completar una racha de > 60 ayunos
+                        "Over_Hundred"  : 0,            // Completar unayuno con +100%
+                        "Just_In_Point" : 0,            // Completar un ayuno al 100% exacto
+                        "One_More"      : 0,            // Completar un ayuno con 1 hora extra
+                        "Bye_Bye"       : 0,            // Registra una reduccion de peso
+                        "Hard_Core"     : 0             // Completar un alluno de +18
+                    },
+                    "Levels":
+                    {
+                
+                        "Squire"        : true,         // 14 - 100 hrs (Primer semana)
+                        "Apprentice"    : false,        // 101 - 300 hrs total fast
+                        "Knight"        : false,        // 301 - 450 hrs total fast
+                        "Warrior"       : false,        // 451 - 1k  hrs total fast
+                        "Spartan"       : false         // over 1k   hrs total fast 
+                    },
+                    "last_achievement": [],             //Informacion de los logros para un banner mostrandolos
                     "accept_disclaimer": null
                 } 
             
@@ -120,6 +130,34 @@ $(document).ready(function(){
                 window.location.href = 'profile.html';
             })
         }
+        
+//---   Actualiza el Json en caso de tener el formato anterior (Remover en proximo release)
+        if(_user.hasOwnProperty("logros"))   
+        {
+            delete _user.logros;
+            _user.Achievements = {
+                                    "First_Timer"   : false,        // Conseguir el primer ayuno    
+                                    "X5"            : 0,            // Completar una racha de > 5 ayunos
+                                    "X10"           : 0,            // Completar una racha de > 9 ayunos
+                                    "Half_Waypoint" : 0,            // Completar una racha de = 15 ayunos
+                                    "Unstoppable"   : 0,            // Completar una racha de > 30 ayunos
+                                    "Warrior"       : 0,            // Completar una racha de > 60 ayunos
+                                    "Over_Hundred"  : 0,            // Completar unayuno con +100%
+                                    "Just_In_Point" : 0,            // Completar un ayuno al 100% exacto
+                                    "One_More"      : 0,            // Completar un ayuno con 1 hora extra
+                                    "Bye_Bye"       : 0,            // Registra una reduccion de peso
+                                    "Hard_Core"     : 0             // Completar un alluno de +18
+                                }
+            _user.Levels =      {
+        
+                                    "Squire"        : true,         // 14 - 100 hrs (Primer semana)
+                                    "Apprentice"    : false,        // 101 - 300 hrs total fast
+                                    "Knight"        : false,        // 301 - 450 hrs total fast
+                                    "Warrior"       : false,        // 451 - 1k  hrs total fast
+                                    "Spartan"       : false         // over 1k   hrs total fast 
+                                }
+            localStorage.setItem("User",  JSON.stringify(_user))           
+        }     
     })
 })
 
