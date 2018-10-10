@@ -18,7 +18,11 @@
 $(document).ready(function() 
 {  
     var _user = JSON.parse(localStorage.getItem('User'))  
-    console.log(_user)
+    if(_user == null)
+    { 
+        window.location.href = 'index.html';
+    }
+    
     switch(_user.Language)
     {
         case "1":  
