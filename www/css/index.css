@@ -282,3 +282,11 @@ width: 500px;
 .side-nav li.active {
     background-color: #434344 !important;
 }
+ 
+.collection-item>a{
+    color:#3499E1 !important;
+}
+ 
+.card {
+    color: #434344 !important;
+}
