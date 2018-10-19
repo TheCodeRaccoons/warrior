@@ -100,7 +100,11 @@ $(document).ready(function(){
             var Progress = parseInt($('#User_Weigth').val() - currWeight)
             var cc = new Date();
             if(_user.hasOwnProperty('User_Weights'))
-            {
+            { 
+                if(_user.User_Weigth < currWeight)
+                {
+                    _user.Achievements.Bye_Bye = _user.Achievements.Bye_Bye + 1;
+                }
                 _user.User_Last_Weight_Date = cc;
                 _user['User_Weights'].push(
                     {   
@@ -111,6 +115,7 @@ $(document).ready(function(){
             }
             else
             {
+                
                 _user.User_Last_Weight_Date = cc;
                 _user.User_Weights = []
                 _user['User_Weights'].push(

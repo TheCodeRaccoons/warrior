@@ -89,7 +89,7 @@ $(document).ready(function()
                     //---
                     FastCompleted($(this))
                 }
-                else if(parseInt($("#h").html()) >= 12 && parseInt($("#h").html()) <= _user.Target_Fast )
+                else if(parseInt($("#h").html()) > 12 && parseInt($("#h").html()) < _user.Target_Fast )
                 {
                     //---
                     FastNotCompleted($(this))
@@ -122,8 +122,6 @@ $(document).ready(function()
 
 });
 
-
-
     //--- Complete the fast and open modal
     function FastCompleted(e)
     { 
@@ -150,6 +148,9 @@ $(document).ready(function()
                 "Target_reached"    : reached
             });
             _user.Fast_Hit = parseInt(_user.Fast_Hit) + 1
+
+            SetAchievements()
+
             localStorage.setItem("User",  JSON.stringify(_user)) 
         
             localStorage.removeItem('Fast_Start');
@@ -220,6 +221,7 @@ $(document).ready(function()
                     "Target_reached"    : reached
                 });
                 _user.Fast_Hit = 0
+                SetAchievements()
                 localStorage.setItem("User",  JSON.stringify(_user))
                 
                 localStorage.removeItem('Fast_Start');
@@ -416,3 +418,80 @@ $(document).ready(function()
             $('#reiniciarAyuno').modal('close');
     })
 });
+
+
+function SetAchievements()
+{
+    if(_user.Total_Fast_Time >= 14 && _user.Total_Fast_Time <= 100)
+    {
+        _user.Levels.Squire = true;
+    }
+    else if (_user.Total_Fast_Time >= 101 && _user.Total_Fast_Time <= 300)
+    {
+        _user.Levels.Squire = true;
+        _user.Levels.Apprentice = true;
+    }
+    else if (_user.Total_Fast_Time >= 301 && _user.Total_Fast_Time <= 450)
+    {
+        _user.Levels.Squire = true;
+        _user.Levels.Apprentice = true;
+        _user.Levels.Knight = true;
+    }
+    else if (_user.Total_Fast_Time >= 451 && _user.Total_Fast_Time <= 1000)
+    {
+        _user.Levels.Squire = true;
+        _user.Levels.Apprentice = true;
+        _user.Levels.Knight = true;
+        _user.Levels.Warrior = true;
+    }
+    else if (_user.Total_Fast_Time > 1000)
+    {
+        _user.Levels.Squire = true;
+        _user.Levels.Apprentice = true;
+        _user.Levels.Knight = true;
+        _user.Levels.Warrior = true;
+        _user.Levels.Spartan = true;   
+    }
+
+    if(_user.Total_Fast_Time > 0)
+    {
+        _user.Achievements.First_Timer = true;
+    }
+    if(_user.Fast_Hit >= 5)
+    {
+        _user.Achievements.X5 = _user.Achievements.X5 + 1;
+    }
+    if(_user.Fast_Hit >= 10)
+    {
+        _user.Achievements.X10 = _user.Achievements.X10 + 1;
+    }
+    if(_user.Fast_Hit >= 15)
+    {
+        _user.Achievements.Half_Waypoint = _user.Achievements.Half_Waypoint + 1;
+    }
+    if(_user.Fast_Hit >= 30)
+    {
+        _user.Achievements.Unstoppable = _user.Achievements.Unstoppable + 1;
+    }
+    if(_user.Fast_Hit >= 60)
+    {
+        _user.Achievements.Warrior = _user.Achievements.Warrior + 1;
+    }
+    if(parseInt(cont.getAttribute('data-pct')) > 100 )
+    {
+        _user.Achievements.Over_Hundred = _user.Achievements.Over_Hundred + 1;
+    }
+    if(parseInt(cont.getAttribute('data-pct')) == 100 )
+    {
+        _user.Achievements.Just_In_Point = _user.Achievements.Just_In_Point + 1;
+    }
+    if(parseInt($("#h").html()) > _user.Target_Fast )
+    {
+        _user.Achievements.One_More = _user.Achievements.One_More + 1;
+    }
+    if(parseInt($("#h").html()) > 18 )
+    {
+        _user.Achievements.Hard_Core = _user.Achievements.Hard_Core + 1;
+    }
+
+}

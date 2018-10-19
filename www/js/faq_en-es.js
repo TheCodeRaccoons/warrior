@@ -14,6 +14,9 @@ function SetLanguage()
     switch(_user.Language)
     {
         case "1":  
+            $("#title").html("Preguntas Frecuentes:")
+            $("#askus").html(" Preguntanos via <a style=\"color:#3499E1\" onclick=\"location.href='mailto:uriarte.coach@gmail.com?Subject=Preguntas%20De%20La%20Dieta';\">Correo Electronico</a>")
+
             $("#faq_1_title").html("¿Qué es la dieta del guerrero?") 
             $("#faq_1_body").html("Es un estilo de vida alimenticio dedicado a desintoxicar tu cuerpo diariamente mediante el ayuno intermitente (ayunos mayores a 14 horas todos los días) el cual tiene como resultados mas visibles y notorios la perdida de peso y la quema de grasa.")  
 
@@ -52,10 +55,14 @@ function SetLanguage()
 
             break;
         case "2":     
+
+            $("#title").html("FAQ")
+            $("#askus").html("Ask us via <a style=\"color:#3499E1\" onclick=\"location.href='mailto:uriarte.coach@gmail.com?Subject=Preguntas%20De%20La%20Dieta';\">e-mail</a>")
+
             $("#faq_1_title").html("What is the warior's diet?") 
             $("#faq_1_body").html("It is a diet dedicated to detoxifying your body daily through intermittent fasting (fasts greater than 14 hours every day) which has the most visible and notable results in weight loss and fat burning. ")  
     
-            $("#faq_2_title").html("How long does it takes to see the results?")  
+            $("#faq_2_title").html("does it takes long to see results?")  
             $("#faq_2_body").html("Just as any other diet it depends on your life style and your condition when starting the regime, but you can start seeing the results after a couple of weeks")   
 
             $("#faq_3_title").html("Is it safe or healthy?")  
@@ -70,7 +77,7 @@ function SetLanguage()
             $("#faq_6_title").html("Can I exercise while fasting?")  
             $("#faq_6_body").html("You can, but give your body about a week in order to adapt to your regular training.")   
 
-            $("#faq_7_title").html("Should i exercise during my fast window or out of it?")  
+            $("#faq_7_title").html("Should I exercise during my fast window or during my meal window?")  
             $("#faq_7_body").html("The best you can do is being constant on your decition, meaning, what ever you can adapt better to your lifestyle, even tho, some times taining during the fast window can increase fatburn, but training during meal window can improve muscle gain. ")  
             
             $("#faq_8_title").html("How many hours should I fast?")  
@@ -91,6 +98,9 @@ function SetLanguage()
 
             break;
         default: 
+            $("#title").html("Preguntas Frecuentes:")
+            $("#askus").html(" Preguntanos via <a style=\"color:#3499E1\" onclick=\"location.href='mailto:uriarte.coach@gmail.com?Subject=Preguntas%20De%20La%20Dieta';\">Correo Electronico</a>")
+            
             $("#faq_1_title").html("¿Qué es la dieta del guerrero?") 
             $("#faq_1_body").html("Es un estilo de vida alimenticio dedicado a desintoxicar tu cuerpo diariamente mediante el ayuno intermitente (ayunos mayores a 14 horas todos los días) el cual tiene como resultados mas visibles y notorios la perdida de peso y la quema de grasa.")  
 

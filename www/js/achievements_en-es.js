@@ -22,6 +22,10 @@ $(document).ready(function()
     { 
         window.location.href = 'index.html';
     }
+    else
+    {
+        GetAchievements()
+    }
     
     switch(_user.Language)
     {
@@ -135,5 +139,5 @@ $(document).ready(function()
         InitializeTooltips()
             break;
     }
-    
+
 });
