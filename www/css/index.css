@@ -18,9 +18,8 @@ html
     background: #3499E1 !important;
     color: #FFFFFF;
     padding-bottom: 10px !important;
-    border-bottom: 2px solid #c2d5e2;
-    margin-bottom: 0 !important;
-    filter: drop-shadow(0 2mm 2mm #0000008a);
+    border-bottom: 4px solid #c2d5e2;
+    margin-bottom: 0 !important; 
 } 
 
 .right{
@@ -98,8 +97,7 @@ ul.side-nav>li>a{
 .divider-shadow
 {  
     background: #c2d5e2;
-    padding-bottom: 4px !important;
-    filter: drop-shadow(0 -2mm 2mm #000000);
+    padding-bottom: 4px !important; 
 } 
 
 .spacer{
@@ -131,7 +129,7 @@ margin-bottom: 0px !important;
 
 /*Rounded user Image*/
 .circle{ 
-    border: 4px solid #c2d5e2 !important;
+    border: 4px solid #555557 !important;
     margin-top: 20px;
     width: 65%; 
     height: auto;
@@ -289,4 +287,8 @@ width: 500px;
  
 .card {
     color: #434344 !important;
+}
+
+.active {
+    border: none !important;
 }

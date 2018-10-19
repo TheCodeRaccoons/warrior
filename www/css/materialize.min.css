@@ -2188,6 +2188,7 @@ td,th{
 }
 .collection.with-header .collection-header{
     background-color:#E8F3FB;
+    border: none;
     border-bottom:1px solid #e0e0e0;
     padding:10px 20px
 }
@@ -4421,7 +4422,8 @@ button.btn-floating{
     min-height:3rem;
     line-height:3rem;
     padding:0 1rem;
-    background-color:#E8F3FB;
+    background-color:#555557; 
+    color: #E8F3FB;
     border-bottom:1px solid #ddd
 }
 .collapsible-header i{
