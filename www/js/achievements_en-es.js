@@ -21,11 +21,7 @@ $(document).ready(function()
     if(_user == null)
     { 
         window.location.href = 'index.html';
-    }
-    else
-    {
-        GetAchievements()
-    }
+    } 
     
     switch(_user.Language)
     {
@@ -139,5 +135,6 @@ $(document).ready(function()
         InitializeTooltips()
             break;
     }
-
+    
+    GetAchievements()
 });
