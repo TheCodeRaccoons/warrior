@@ -22,7 +22,7 @@ function getIMC(peso, altura)
 
 function getBuildVersion()
 {
-    $('#version').html('Open beta 2.2.0')
+    $('#version').html('Open beta 3.0.0')
 }
 
 _user = JSON.parse(localStorage.getItem('User')) 
