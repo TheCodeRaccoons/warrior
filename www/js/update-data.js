@@ -26,9 +26,11 @@ $(document).ready(function(){
         $("#height").html(_user.User_height) 
         $("#imc").html(_user.IMC)
     //if the localstorage object does not exist... well, create one...
-    }else{
+    }
+    else
+    {
     $("#bienvenido").modal('open',{dismissible: false});;
-    $("#update").click(function() {
+    $( "#update" ).click(function() { 
             var User =
                 {
                     "User_Name"         : $('#User_Name').val(), 
@@ -94,7 +96,7 @@ $(document).ready(function(){
                                         $("#height").html($('#User_height').val()) 
                                         $(".name").html($('#User_Name').val()) 
 //---   Agregar los cambios de peso del usuario
-        if($('#User_Weigth').val())
+        if($('#User_Weigth').val() != currWeight)
         {
             console.log(currWeight);
             var Progress = parseInt($('#User_Weigth').val() - currWeight)
@@ -125,15 +127,6 @@ $(document).ready(function(){
                         "Progress"          : Progress
                     });
             }
-                                            
-            localStorage.setItem("User",  JSON.stringify(_user))
-            console.log(_user);
-            
-            $("#update_data").modal('open',{dismissible: false});;
-            $("#modal-b-update" ).click(function() 
-            {
-                window.location.href = 'profile.html';
-            })
         }
         
 //---   Actualiza el Json en caso de tener el formato anterior (Remover en proximo release)
@@ -160,9 +153,18 @@ $(document).ready(function(){
                                     "Knight"        : false,        // 301 - 450 hrs total fast
                                     "Warrior"       : false,        // 451 - 1k  hrs total fast
                                     "Spartan"       : false         // over 1k   hrs total fast 
-                                }
-            localStorage.setItem("User",  JSON.stringify(_user))           
-        }     
+                                }   
+        } 
+
+                                            
+        localStorage.setItem("User",  JSON.stringify(_user))
+        console.log(_user);
+        
+        $("#update_data").modal('open',{dismissible: false});;
+        $("#modal-b-update" ).click(function() 
+        {
+            window.location.href = 'profile.html';
+        })
     })
 })
 
