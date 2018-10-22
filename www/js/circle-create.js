@@ -394,7 +394,7 @@ $(document).ready(function()
     $(document).on('click','#restart',function(){
         $("#fasted_hours").html($("#h").text())
         $('#reiniciarAyuno').modal('open',{dismissible: false}); 
-        $('#modal_b_restart_ok').one('click',function() { 
+        $('#modal-b-restart_ok').one('click',function() { 
         $("#h").html("0")
         $("#m").html("00")
         $("#s").html("00")
@@ -415,7 +415,7 @@ $(document).ready(function()
         fastint;
         })
         $('#modal-b-restart_cancel').click(function() {
-            $('#reiniciarAyuno').modal('close');
+            $('#reiniciarAyuno').modal('close'); 
     })
 });
 
