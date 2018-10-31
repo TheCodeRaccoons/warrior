@@ -395,24 +395,24 @@ $(document).ready(function()
         $("#fasted_hours").html($("#h").text())
         $('#reiniciarAyuno').modal('open',{dismissible: false}); 
         $('#modal-b-restart_ok').one('click',function() { 
-        $("#h").html("0")
-        $("#m").html("00")
-        $("#s").html("00")
-        $('#inicio').html(" ")
-        $('#fin').html(" ")
-        clearInterval(fastint);
-        var cc = new Date();
-        var a = cc.getTime();
-        ms = Math.abs(a - cc);
-        cc.setTime(a);
-        getMonthAndDate(cc)
-        time = cc
-        localStorage.setItem("Fast_Start", cc);
-        updateDate(cc);
-        fastint = window.setInterval(function() {
+            $("#h").html("0")
+            $("#m").html("00")
+            $("#s").html("00")
+            $('#inicio').html(" ")
+            $('#fin').html(" ")
+            clearInterval(fastint);
+            var cc = new Date();
+            var a = cc.getTime();
+            ms = Math.abs(a - cc);
+            cc.setTime(a);
+            getMonthAndDate(cc)
+            time = cc
+            localStorage.setItem("Fast_Start", cc);
             updateDate(cc);
-        }, 1000);
-        fastint;
+            fastint = window.setInterval(function() {
+                updateDate(cc);
+            }, 1000);
+            fastint;
         })
         $('#modal-b-restart_cancel').click(function() {
             $('#reiniciarAyuno').modal('close'); 

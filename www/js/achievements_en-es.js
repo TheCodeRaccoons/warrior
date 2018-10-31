@@ -26,10 +26,10 @@ $(document).ready(function()
     switch(_user.Language)
     {
         case "1":  
-            squire_text         = "Consigue mas de 100 horas de ayuno" ;
-            apprentice_text     = "Consigue mas de 300 horas de ayuno" ;
-            knight_text         = "Consigue mas de 450 horas de ayuno" ;
-            warrior_text        = "Consigue mas de 999 horas de ayuno" ;
+            squire_text         = "Consigue mas de 15 horas de ayuno" ;
+            apprentice_text     = "Consigue mas de 100 horas de ayuno" ;
+            knight_text         = "Consigue mas de 300 horas de ayuno" ;
+            warrior_text        = "Consigue mas de 450 horas de ayuno" ;
             spartan_text        = "Consigue mas de 1000 horas de ayuno" ;
             first_time_text     = "Completa tu primer ayuno" ;
             times5_text         = "Consigue una racha de 5 ayunos" ;
@@ -63,10 +63,10 @@ $(document).ready(function()
     
             break;
         case "2":     
-        squire_text         = "Achieve a total of 100 fasting hours" ;
-        apprentice_text     = "Achieve a total of 300 fasting hours" ;
-        knight_text         = "Achieve a total of 450 fasting hours" ;
-        warrior_text        = "Achieve a total of 999 fasting hours" ;
+        squire_text         = "Achieve over 15 fasting hours" ;
+        apprentice_text     = "Achieve over 100 fasting hours" ;
+        knight_text         = "Achieve over 300 fasting hours" ;
+        warrior_text        = "Achieve over 450 fasting hours" ;
         spartan_text        = "Achieve over 1000 fasting hours" ;
         first_time_text     = "Comlpete your first fast" ;
         times5_text         = "Achieve a streak of 5 fasts" ;
@@ -99,10 +99,10 @@ $(document).ready(function()
         InitializeTooltips()
             break;
         default: 
-        squire_text         = "Consigue mas de 100 horas de ayuno" ;
-        apprentice_text     = "Consigue mas de 300 horas de ayuno" ;
-        knight_text         = "Consigue mas de 450 horas de ayuno" ;
-        warrior_text        = "Consigue mas de 999 horas de ayuno" ;
+        squire_text         = "Consigue mas de 15 horas de ayuno" ;
+        apprentice_text     = "Consigue mas de 100 horas de ayuno" ;
+        knight_text         = "Consigue mas de 300 horas de ayuno" ;
+        warrior_text        = "Consigue mas de 450 horas de ayuno" ;
         spartan_text        = "Consigue mas de 1000 horas de ayuno" ;
         first_time_text     = "Completa tu primer ayuno" ;
         times5_text         = "Consigue una racha de 5 ayunos" ;
